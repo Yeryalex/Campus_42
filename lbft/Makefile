@@ -9,6 +9,7 @@ CFILES = ft_isalpha.c\
 		 ft_memset.c\
 		 ft_bzero.c\
 		 ft_memcpy.c\
+		 ft_memmove.c\
 
 OFILES = $(CFILES:.c=.o)
 
