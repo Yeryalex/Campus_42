@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:43:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/27 21:24:12 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/27 21:44:09 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
@@ -15,25 +15,19 @@
 #include <unistd.h>
 #include <iomanip>
 #define RESET   "\033[0m"
-#define RED     "\033[1;31m"
 #define GREEN   "\033[1;32m"
-#define YELLOW  "\033[38;5;94m"
-#define BLUE    "\033[1;34m"
+#define YELLOW  "\033[38;5;228m"
+#define BLUE    "\033[38;5;45m"
 
 
 class PhoneBook {
 	private:
 		int	index;
-		int flag;
 		std::string contacts[8][5];
 	public:
 		void register_contacts(std::string contact[]);
 		void print_phonebook();
-		PhoneBook ()
-		{
-			index = 0;
-			flag = 0;
-		}
+		PhoneBook () { index = 0;}
 };
 
 void	header_phonebook()
@@ -94,10 +88,7 @@ class Contact {
 		std::string contact[5];
 	public:
 		std::string * add_contact_info();
-		void print_contact();	
 };
-
-
 
 void    PhoneBook::register_contacts(std::string contact[])
 {
@@ -108,14 +99,10 @@ void    PhoneBook::register_contacts(std::string contact[])
 	index++;
 }
 
-
-void Contact::print_contact()
+void	check_is_filled(std::string *word)
 {
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << contact[i] << " with length of ";
-		std::cout << contact[i].length() << "\n";
-	}
+	while (word == "")
+		std::getline(std::cin, word);
 }
 
 std::string * Contact::add_contact_info()
@@ -123,22 +110,18 @@ std::string * Contact::add_contact_info()
 	std::cout << "Insert the following information:\n\n";
 	
 	std::cout << "First Name:";
-	std::getline(std::cin, first_name);
+	check_is_filled(first_name);
 
 	std::cout << "Last name:";
-	//std::cin >> last_name;	
 	std::getline(std::cin, last_name);
 	
 	std::cout << "Nickname:";
-	//std::cin >> nickname;
 	std::getline(std::cin, nickname);
 	
 	std::cout << "Phone Number:";
-	//std::cin >> phone_number;
 	std::getline(std::cin, phone_number);
 	
 	std::cout << "Darkest Secret:";
-	//std::cin >> darkest_secret;
 	std::getline(std::cin, darkest_secret);
 
 	contact[0] = first_name;
@@ -159,9 +142,9 @@ int main()
 	std::string search = "SEARCH";
 	std::string exit = "EXIT";
 	
-	std::cout << "--------------------------------------------------\n";
+	std::cout << GREEN << "--------------------------------------------------\n";
 	std::cout << "              Personal Phonebook!\n";
-	std::cout << "--------------------------------------------------\n";
+	std::cout << "--------------------------------------------------\n\n" << RESET;
 	
 	while (1)
 	{
@@ -170,7 +153,6 @@ int main()
 		if (option == add)
 		{
 			phonebook.register_contacts(contact.add_contact_info());
-			//contact.print_contact();
 		}
 		else if (option == search)
 		{
@@ -178,7 +160,7 @@ int main()
 		}
 		else if (option == exit)
 		{
-			std::cout << "\n*****Goodbye*****\n";
+			std::cout << BLUE <<  "\n*****Goodbye*****\n" << RESET;
 			return (0);
 		}
 	}
