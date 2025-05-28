@@ -6,13 +6,15 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/05/28 13:20:03 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/05/28 14:58:58 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-CFILES = myphonebook.cpp\
+CFILES = main.cpp \
+		 Contact.cpp \
+		 PhoneBook.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 

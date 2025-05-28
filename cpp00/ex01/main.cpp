@@ -1,40 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   myphonebook.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:43:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 13:18:36 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 15:05:18 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "main.h"
 #include <iostream>
 #include <string>
 #include <iomanip>
+
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 #define RESET   "\033[0m"
 #define GREEN   "\033[1;32m"
 #define YELLOW  "\033[38;5;228m"
 #define BLUE    "\033[38;5;45m"
 
-
+/*
 class PhoneBook {
 	private:
 		int	index;
 		std::string contacts[8][5];
 	public:
+		PhoneBook () { index = 0;}
+		~PhoneBook() {
+			std::cout << "Destructor called\n";
+		};
 		void register_contacts(std::string contact[]);
 		void print_phonebook();
-		PhoneBook () { index = 0;}
 };
-
+*/
 void	header_phonebook()
 {
 	std::cout << YELLOW << "\n|-------------------------------------------|\n";
 	std::cout << "|     Index|First name| Last name|  nickname|";
 	std::cout << "\n|-------------------------------------------|" << RESET;
 }
-
+/*
 void PhoneBook::print_phonebook()
 {
 	int length_array = index > 8 ? 8 : index;
@@ -74,8 +82,8 @@ void PhoneBook::print_phonebook()
 		}
 	}
 	std::cout << "\n\n";
-}
-
+}*/
+/*
 class Contact {
 	private:
 		std::string first_name;
@@ -85,9 +93,12 @@ class Contact {
 		std::string darkest_secret;
 		std::string contact[5];
 	public:
+		~Contact (){
+			std::cout << "Contacts destructor called\n";
+		};
 		std::string * add_contact_info();
 };
-
+*//*
 void    PhoneBook::register_contacts(std::string contact[])
 {
 	for (int i = 0; i < 5; i++)
@@ -95,8 +106,8 @@ void    PhoneBook::register_contacts(std::string contact[])
         contacts[index % 8][i] = contact[i];
     }
 	index++;
-}
-
+}*/
+/*
 void	check_is_filled(std::string *word)
 {
 	*word = "";
@@ -131,7 +142,7 @@ std::string *Contact::add_contact_info()
 	contact[4] = darkest_secret;
 	return (contact);
 };
-
+*/
 int main()
 {
 	Contact contact;
