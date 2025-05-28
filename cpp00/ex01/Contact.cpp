@@ -6,11 +6,12 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:39:00 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 14:46:55 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:21:22 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include "messages.hpp"
 
 void	Contact::check_is_filled(std::string *word)
 {
@@ -43,5 +44,7 @@ std::string *Contact::add_contact_info()
 	contact[2] = nickname;
 	contact[3] = phone_number;
 	contact[4] = darkest_secret;
+	system("clear");
+	ft_main_header();
 	return (contact);
 };

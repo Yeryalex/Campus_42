@@ -6,14 +6,22 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:34:17 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 15:18:50 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 17:21:56 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-#include "main.hpp"
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <cstdlib>
+
+# define RESET   "\033[0m"
+# define GREEN   "\033[1;32m"
+# define YELLOW  "\033[38;5;228m"
+# define BLUE    "\033[38;5;45m"
 
 class Contact {
 	private:
