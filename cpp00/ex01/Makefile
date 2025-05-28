@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/05/28 14:58:58 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/05/28 15:14:20 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Contact.hpp PhoneBook.hpp main.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
