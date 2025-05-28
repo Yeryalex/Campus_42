@@ -6,13 +6,11 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:43:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/27 21:44:09 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/28 13:18:36 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <iostream>
 #include <string>
-#include <stdlib.h>
-#include <unistd.h>
 #include <iomanip>
 #define RESET   "\033[0m"
 #define GREEN   "\033[1;32m"
@@ -101,29 +99,31 @@ void    PhoneBook::register_contacts(std::string contact[])
 
 void	check_is_filled(std::string *word)
 {
-	while (word == "")
-		std::getline(std::cin, word);
+	*word = "";
+	while (*word == "")
+		std::getline(std::cin, *word);
 }
 
-std::string * Contact::add_contact_info()
+
+std::string *Contact::add_contact_info()
 {
 	std::cout << "Insert the following information:\n\n";
 	
 	std::cout << "First Name:";
-	check_is_filled(first_name);
-
+	check_is_filled(&first_name);
+	
 	std::cout << "Last name:";
-	std::getline(std::cin, last_name);
-	
+	check_is_filled(&last_name);
+		
 	std::cout << "Nickname:";
-	std::getline(std::cin, nickname);
-	
+	check_is_filled(&nickname);
+		
 	std::cout << "Phone Number:";
-	std::getline(std::cin, phone_number);
-	
+	check_is_filled(&phone_number);
+		
 	std::cout << "Darkest Secret:";
-	std::getline(std::cin, darkest_secret);
-
+	check_is_filled(&darkest_secret);
+	
 	contact[0] = first_name;
 	contact[1] = last_name;
 	contact[2] = nickname;
@@ -161,7 +161,7 @@ int main()
 		else if (option == exit)
 		{
 			std::cout << BLUE <<  "\n*****Goodbye*****\n" << RESET;
-			return (0);
+			break ;
 		}
 	}
 	return (0);

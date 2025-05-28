@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/05/26 17:43:33 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/05/28 13:20:03 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFILES = myphonebook.cpp\
 
 OFILES = $(CFILES:.cpp=.o)
 
-NAME = myphonebook
+NAME = phonebook
 
 all: $(NAME)
 
