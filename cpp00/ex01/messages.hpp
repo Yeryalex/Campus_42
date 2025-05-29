@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:59:31 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 17:03:22 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/29 15:53:29 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 #define GREEN   "\033[1;32m"
 #define YELLOW  "\033[38;5;228m"
 #define BLUE    "\033[38;5;45m"
+#define RED "\033[1;31m"
+
 
 void	ft_main_header();
 

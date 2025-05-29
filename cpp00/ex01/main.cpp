@@ -6,13 +6,15 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:43:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 17:18:20 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/05/29 14:47:48 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "messages.hpp"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+
 
 int main()
 {
@@ -36,7 +38,9 @@ int main()
 			phonebook.print_phonebook();
 		else if (option == exit)
 		{
-			std::cout << BLUE <<  "\n*****Goodbye*****\n" << RESET;
+			system("clear");
+			ft_main_header();
+			std::cout << BLUE <<  "\n\n                  *****Goodbye*****\n\n" << RESET;
 			break ;
 		}
 	}
