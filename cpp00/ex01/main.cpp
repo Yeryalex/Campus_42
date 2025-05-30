@@ -14,8 +14,6 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-
-
 int main()
 {
 	Contact contact;
@@ -25,11 +23,14 @@ int main()
 	std::string add = "ADD";
 	std::string search = "SEARCH";
 	std::string exit = "EXIT";
-	system("clear");
-	ft_main_header();
-	std::cout << "> ";	
 	while (1)
 	{
+		if (option != add && option != search && option != exit && !option.empty())
+		{
+			system("clear");
+		}
+		ft_main_header();
+		std::cout << "> ";	
 		std::getline(std::cin,option);
 		if (std::cin.eof())
 				break ;

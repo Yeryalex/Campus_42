@@ -55,5 +55,6 @@ std::string *Contact::add_contact_info()
 		std::getline(std::cin, enter);
 	system("clear");
 	ft_main_header();
+	std::cout << "> ";
 	return (contact);
 };

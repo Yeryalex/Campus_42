@@ -26,7 +26,7 @@ void PhoneBook::print_phonebook()
 		while (enter != "")
     		std::getline(std::cin, enter);
 		system("clear");
-		ft_main_header();
+		ft_main_header();	
 	}
 	else
 	{
@@ -64,7 +64,7 @@ void PhoneBook::print_phonebook()
 		
 		while (true)
 		{
-			std::cout << "Enter index (0 to " << (length_array - 1) << "): ";
+			std::cout << "\nEnter index (0 to " << (length_array - 1) << "): ";
 			std::getline(std::cin, number);
 		
 			if (number.empty() || number.find_first_not_of("0123456789") != std::string::npos)
