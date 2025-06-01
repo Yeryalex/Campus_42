@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:39:00 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/29 16:50:21 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/01 14:43:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,18 @@ std::string *Contact::add_contact_info()
 	check_is_filled(&nickname);
 
 	std::cout << "Phone Number:";
-	check_is_filled(&phone_number);
-
+	std::getline(std::cin, phone_number);
+	while (1)
+	{ 
+		if (phone_number.empty() || phone_number.find_first_not_of("0123456789") != std::string::npos)
+		{
+			std::cout << "Enter a valid Phone number...\n";
+			std::cout << "Phone Number:";
+			std::getline(std::cin, phone_number);
+		}
+		else
+			break ;
+	}
 	std::cout << "Darkest Secret:";
 	check_is_filled(&darkest_secret);
 
@@ -55,6 +65,5 @@ std::string *Contact::add_contact_info()
 		std::getline(std::cin, enter);
 	system("clear");
 	ft_main_header();
-	std::cout << "> ";
 	return (contact);
 };

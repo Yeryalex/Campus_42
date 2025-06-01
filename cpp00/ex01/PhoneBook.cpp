@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:55:26 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/29 16:56:11 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/01 14:12:25 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void PhoneBook::print_phonebook()
 	if (!index)
 	{
 		std::cout << BLUE << "\n\n----------There is no any contact yet----------\n\n" << RESET;
-		std::cout << "          Press Enter to continue...";
+		std::cout << "             Press Enter to continue...";
 		while (enter != "")
     		std::getline(std::cin, enter);
 		system("clear");
@@ -84,6 +84,9 @@ void PhoneBook::print_phonebook()
 		system("clear");
 		ft_main_header();
 		print_contact(real_number);
+		std::cout << "\nPress Enter to continue...";
+		while (!enter.empty())
+			std::getline(std::cin, enter);
 	}
 }
 
