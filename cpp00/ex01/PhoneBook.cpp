@@ -6,27 +6,38 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:55:26 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/06/01 14:12:25 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 15:07:41 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "messages.hpp"
+
+void PhoneBook::header_main()
+{
+    std::cout << GREEN << "/*--------------------------------------------------------------*/\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*                      Personal Phonebook!                     */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*    Please, select only these options. (ADD, SEARCH, EXIT)    */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*--------------------------------------------------------------*/\n\n" << RESET;
+}
+
 
 void PhoneBook::print_phonebook()
 {
 	std::string enter = "a";
 	system("clear");
-	ft_main_header();
+	header_main();
 	int length_array = index > 8 ? 8 : index;
 	if (!index)
 	{
 		std::cout << BLUE << "\n\n----------There is no any contact yet----------\n\n" << RESET;
-		std::cout << "             Press Enter to continue...";
+		std::cout << "           Press Enter to continue...";
 		while (enter != "")
     		std::getline(std::cin, enter);
 		system("clear");
-		ft_main_header();	
+		header_main();	
 	}
 	else
 	{
@@ -59,9 +70,10 @@ void PhoneBook::print_phonebook()
 					std::cout << "|";
 			}
 		}
+		std::cout << "\n---------------------------------------------\n";
 		std::string number;
 		int real_number = -1;
-		
+			
 		while (true)
 		{
 			std::cout << "\nEnter index (0 to " << (length_array - 1) << "): ";
@@ -82,7 +94,7 @@ void PhoneBook::print_phonebook()
 			break;
 		}
 		system("clear");
-		ft_main_header();
+		header_main();
 		print_contact(real_number);
 		std::cout << "\nPress Enter to continue...";
 		while (!enter.empty())

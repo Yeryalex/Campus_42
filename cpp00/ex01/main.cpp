@@ -6,13 +6,24 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 17:43:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/06/01 14:48:41 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 14:55:16 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "messages.hpp"
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+void    ft_main_header()
+{
+    std::cout << GREEN << "/*--------------------------------------------------------------*/\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*                      Personal Phonebook!                     */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*    Please, select only these options. (ADD, SEARCH, EXIT)    */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*--------------------------------------------------------------*/\n\n" << RESET;
+}
+
 
 int main()
 {

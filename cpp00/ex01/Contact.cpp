@@ -6,12 +6,23 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:39:00 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/06/01 14:43:43 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 15:04:55 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-#include "messages.hpp"
+
+void Contact::header_contact()
+{
+    std::cout << GREEN << "/*--------------------------------------------------------------*/\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*                      Personal Phonebook!                     */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*    Please, select only these options. (ADD, SEARCH, EXIT)    */\n";
+    std::cout << "/*                                                              */\n";
+    std::cout << "/*--------------------------------------------------------------*/\n\n" << RESET;
+}
+
 
 void	Contact::check_is_filled(std::string *word)
 {
@@ -25,7 +36,7 @@ std::string *Contact::add_contact_info()
 	std::string enter = "enter";
 
 	system("clear");
-	ft_main_header();
+	header_contact();
 	std::cout << "Insert the following information:\n\n";
 
 	std::cout << "First Name:";
@@ -59,11 +70,11 @@ std::string *Contact::add_contact_info()
 	contact[3] = phone_number;
 	contact[4] = darkest_secret;
 	system("clear");
-	ft_main_header();
+	header_contact();
 	std::cout << "\n Contact succesfully saved!!!  Press Enter to continue...";
 	while (enter != "")
 		std::getline(std::cin, enter);
 	system("clear");
-	ft_main_header();
+	header_contact();
 	return (contact);
 };

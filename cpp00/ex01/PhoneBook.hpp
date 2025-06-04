@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 14:54:10 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/05/28 17:35:59 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/04 15:07:54 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define GREEN   "\033[1;32m"
 # define YELLOW  "\033[38;5;228m"
 # define BLUE    "\033[38;5;45m"
-
+# define RED "\033[31m"
 
 class PhoneBook {
 	private:
@@ -35,6 +35,7 @@ class PhoneBook {
 		void print_phonebook();
 		void header_phonebook();
 		void print_contact(int pos);
+		void header_main();
 };
 
 #endif
