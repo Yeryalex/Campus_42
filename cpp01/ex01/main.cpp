@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:49:22 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/06/18 16:53:33 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/19 11:57:37 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 int	main()
 {
 	Zombie	*z;
+	int		zombiesNum;
 
-	z = zombieHorde(4, "Yery");
-	for (int i = 0; i < 4; i++)
+	zombiesNum = 10;
+	z = zombieHorde(zombiesNum, "Yery");
+	for (int i = 0; i < zombiesNum; i++)
 		z[i].announce();
+	delete[] z;
 	return (0);
 }
