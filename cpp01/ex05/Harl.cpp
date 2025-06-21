@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:35:14 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/06/20 15:23:40 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/06/21 12:26:17 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,20 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	Harl harl;
+	std::string	message[4] = {"DEBUG","INFO","WARNING","ERROR"};
+	void	(Harl::*ptrArray[4])(void);
 
-	void	(Harl::*ptrDebug)(void) = &Harl::debug;
-	void	(Harl::*ptrInfo)(void) = &Harl::info;
-	void	(Harl::*ptrWarning)(void) = &Harl::warning;
-	void	(Harl::*ptrError)(void) = &Harl::error;
+	ptrArray[0] = &Harl::debug;
+	ptrArray[1] = &Harl::info;
+	ptrArray[2] = &Harl::warning;
+	ptrArray[3] = &Harl::error;
 	
-	if (level == "DEBUG")
-		(harl.*ptrDebug)();
-	if (level == "INFO")
-		(harl.*ptrInfo)();
-	if (level == "WARNING")
-		(harl.*ptrWarning)();
-	if (level == "ERROR")
-		(harl.*ptrError)();
+	for (int i = 0; i < 4; i++)
+	{
+		if (message[i] == level)
+		{
+			(this->*ptrArray[i])();
+			return ;
+		}
+	}
 }
