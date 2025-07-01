@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:51 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/01 17:41:46 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:50:12 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,13 @@ std::ostream &operator<<(std::ostream &out, const Fixed &obj)
 {
 	out << obj.toFloat();
 	return (out);
+}
+
+Fixed	Fixed::operator*(Fixed const &other) const
+{
+	Fixed	z;
+	
+	z.setRawBits(getRawBits() * other.getRawBits() >> fractional_bits);
+
+	return (z);
 }

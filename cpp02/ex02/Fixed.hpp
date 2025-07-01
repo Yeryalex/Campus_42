@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:58 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/01 17:45:23 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:48:25 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Fixed
 		int		toInt(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+
+		Fixed	operator*(const Fixed &obj) const;
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &obj);
