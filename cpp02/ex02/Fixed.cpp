@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:51 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/01 18:50:12 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/01 20:01:54 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,71 @@ std::ostream &operator<<(std::ostream &out, const Fixed &obj)
 	return (out);
 }
 
+bool	Fixed::operator>(const Fixed &obj) const
+{
+	return (getRawBits() > obj.getRawBits());
+}
+
+bool	Fixed::operator<(const Fixed &obj) const
+{
+	return (getRawBits() < obj.getRawBits());
+}
+
+
+bool	Fixed::operator>=(const Fixed &obj) const
+{
+	return (getRawBits() >= obj.getRawBits());
+}
+
+
+bool	Fixed::operator<=(const Fixed &obj) const
+{
+	return (getRawBits() <= obj.getRawBits());
+}
+
+bool	Fixed::operator==(const Fixed &obj) const
+{
+	return (getRawBits() == obj.getRawBits());
+}
+
+bool	Fixed::operator!=(const Fixed &obj) const
+{
+	return (getRawBits() != obj.getRawBits());
+}
+
+Fixed	Fixed::operator+(const Fixed &obj) const
+{
+	Fixed	newObj;
+
+	newObj.setRawBits(getRawBits() + obj.getRawBits());
+
+	return (newObj);
+}
+
+Fixed	Fixed::operator-(const Fixed &obj) const
+{
+	Fixed	newObj;
+
+	newObj.setRawBits(getRawBits() - obj.getRawBits());
+
+	return (newObj);
+}
+
+
 Fixed	Fixed::operator*(Fixed const &other) const
 {
-	Fixed	z;
+	Fixed	newObj;
 	
-	z.setRawBits(getRawBits() * other.getRawBits() >> fractional_bits);
+	newObj.setRawBits(getRawBits() * other.getRawBits() >> fractional_bits);
 
-	return (z);
+	return (newObj);
+}
+
+Fixed	Fixed::operator/(Fixed const &other) const
+{
+	Fixed	newObj;
+	
+	newObj.setRawBits(getRawBits() / other.getRawBits() << fractional_bits);
+
+	return (newObj);
 }
