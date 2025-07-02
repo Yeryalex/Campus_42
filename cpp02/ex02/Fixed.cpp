@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:51 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/01 20:01:54 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/02 13:18:00 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,4 +146,50 @@ Fixed	Fixed::operator/(Fixed const &other) const
 	newObj.setRawBits(getRawBits() / other.getRawBits() << fractional_bits);
 
 	return (newObj);
+}
+
+Fixed	&Fixed::operator++()
+{
+	fixed_point++;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp = *this;
+	++(*this);
+	return (temp);
+}
+
+Fixed	&Fixed::operator--()
+{
+	fixed_point--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp = *this;
+	--(*this);
+	return (temp);
+}
+
+Fixed	&Fixed::min(Fixed &a, Fixed &b)
+{
+	return (a < b) ? a : b;
+}
+
+const Fixed	&Fixed::min(const Fixed &a, const Fixed &b)
+{
+	return (a < b) ? a : b;
+}
+
+Fixed	&Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a > b) ? a : b;
+}
+
+const Fixed	&Fixed::max(const Fixed &a, const Fixed &b)
+{
+	return (a > b) ? a : b;
 }
