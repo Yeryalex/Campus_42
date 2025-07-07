@@ -13,6 +13,7 @@ class	ClapTrap
 		unsigned int	energyPoints;
 		unsigned int	attackDamage;
 	public:
+		ClapTrap();
 		ClapTrap(std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap &obj);
@@ -22,6 +23,7 @@ class	ClapTrap
 		void	beRepaired(unsigned int amout);
 		std::string	getName(void) const;
 		unsigned int	getHitPoints(void) const;
+		unsigned int	getEnergyPoints(void) const;
 };
 
 #endif
