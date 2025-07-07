@@ -4,8 +4,8 @@
 
 int main()
 {
-	ScavTrap a("YERY");	
-	
+	ScavTrap a("Yery");
+
 	a.attack("other");
 	a.beRepaired(2);
 	std::cout <<  a.getHitPoints() << std::endl;
@@ -20,4 +20,6 @@ int main()
 	a.beRepaired(100);
 	std::cout <<  a.getHitPoints() << std::endl;
 	std::cout << a.getEnergyPoints() << std::endl;
+
+	a.guardGate();
 }

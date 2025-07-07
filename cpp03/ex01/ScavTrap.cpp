@@ -1,11 +1,14 @@
 
 #include "ScavTrap.hpp"
-/*
-ScavTrap::ScavTrap(): name("DefaultName"), hitPoints(100), energyPoints(50), attackDamage(20)
+
+ScavTrap::ScavTrap(): ClapTrap("defaultName")
 {
 	std::cout << "ScavTrap Default Constructor called\n";
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
 }
-*/
+
 ScavTrap::ScavTrap(std::string assignedName): ClapTrap(assignedName)
 {
 	std::cout << "ScavTrap Constructor called\n";
@@ -18,20 +21,21 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called\n";
 }
-/*
+
+ScavTrap::ScavTrap(const ScavTrap &obj): ClapTrap(obj)
+{
+	std::cout << "ScavTrap copy constructor called\n";	
+}
+
 ScavTrap	&ScavTrap::operator=(const ScavTrap &obj)
 {
+	std::cout << "ScavTrap copy assignment operator called\n";
 	if (this != &obj)
-	{
-		this->name = obj.name;
-		this->hitPoinst = obj.hitPoints;
-		this->energyPoints = obj.energyPoints;
-		this->attackDamage = obj.attackDamage;
-	}
+		ClapTrap::operator=(obj);
 	return (*this);
-}*/
+}
 
-void	guardGate()
+void	ScavTrap::guardGate()
 {
 	std::cout << "ScavTrap is now in Gate Keeper Mode\n";
 }
