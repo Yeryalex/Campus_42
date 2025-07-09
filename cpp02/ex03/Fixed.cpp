@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:51 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/02 13:18:00 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/09 13:41:59 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ const int	Fixed::fractional_bits = 8;
 
 Fixed::Fixed(): fixed_point(0)
 {
-	std::cout << "Default constructor called\n";
+//	std::cout << "Default constructor called\n";
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called\n";
+//	std::cout << "Destructor called\n";
 }
 
 Fixed::Fixed(const int integer)
@@ -44,7 +44,7 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	std::cout << "Copy assignment operator called\n";
+//	std::cout << "Copy assignment operator called\n";
 	if (this != &obj)
 	{
 		this->fixed_point = obj.fixed_point;
