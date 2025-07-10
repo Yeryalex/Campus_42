@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/10 17:33:45 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/10 17:36:55 by yrodrigu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
@@ -5,25 +16,13 @@ int main()
 {
 	DiamondTrap a("Yery");
 
-	std::cout << a.ClapTrap::getName() << std::endl;
-	std::cout << a.ScavTrap::getName() << std::endl;
-/*	a.attack("other");
-	a.beRepaired(2);
-	std::cout <<  a.getHitPoints() << std::endl;
-	std::cout << a.getEnergyPoints() << std::endl;
-	a.takeDamage(100);
-	std::cout <<  a.getHitPoints() << std::endl;
-	std::cout << a.getEnergyPoints() << std::endl;
-	a.takeDamage(4);
-	std::cout <<  a.getHitPoints() << std::endl;
-	std::cout << a.getEnergyPoints() << std::endl;
-	a.attack("no HP");
-	a.beRepaired(100);
-	std::cout <<  a.getHitPoints() << std::endl;
-	std::cout << a.getEnergyPoints() << std::endl;
+	std::cout << "*********************************************************************\n";
+	std::cout << "FragTrap hit Points: " << a.getHitPoints() << std::endl;
+	std::cout << "ScavTrap Energy Points: " << a.getEnergyPoints() << std::endl;
+	std::cout << "FragTrap attack damage: " << a.getAttackDamage() << std::endl;
+	a.attack("other");
+	a.whoAmI();
+	std::cout << "*********************************************************************\n";
 
-	a.highFiveGuys();
-
-*/
 	return (0);	
 }

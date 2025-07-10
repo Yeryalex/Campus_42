@@ -35,6 +35,19 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap Destructor called\n";
 }
 
+void    FragTrap::attack(const std::string &target)
+{
+    if (this->getEnergyPoints() > 0 && this->getHitPoints() > 0)
+    {
+        substractEnergyPoints(1);
+        std::cout << "FragTrap " << this->getName() << " attacks " << target;
+        std::cout << ", causing " << this->getAttackDamage() << " points of damage!\n";
+	}
+    else
+        std::cout << this->getName() <<  " has not enough energy or HP\n";
+}
+
+
 void	FragTrap::highFiveGuys(void)
 {
 	std::cout << "Want a hive Five? Go ahead and take it!\n";
