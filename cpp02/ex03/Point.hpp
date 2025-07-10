@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 13:20:03 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/09 15:07:30 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/10 11:29:06 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class Point
 		const Fixed y;
 	public:
 		Point();
-		Point(const Fixed a, const Fixed b);
+		Point(const float a, const float b);
 		Point(const Point &obj);
 		Point &operator=(const Point &obj);
 		~Point();
-		float	getX(void) const;
-		float	getY(void) const;
+		Fixed	getX(void) const;
+		Fixed	getY(void) const;
 };
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);

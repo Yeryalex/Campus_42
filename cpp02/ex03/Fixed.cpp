@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 12:55:51 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/09 13:41:59 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/10 13:07:15 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ Fixed::~Fixed()
 
 Fixed::Fixed(const int integer)
 {
-	std::cout << "Int constructor called\n";
+//	std::cout << "Int constructor called\n";
 	fixed_point = integer << fractional_bits;
 }
 
 Fixed::Fixed(const float floating)
 {
-	std::cout << "Float constructor called\n";
+//	std::cout << "Float constructor called\n";
 	fixed_point = roundf(floating * (1 << fractional_bits));
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	std::cout << "Copy constructor called\n";
+//	std::cout << "Copy constructor called\n";
 	this->operator=(obj);
 }
 
