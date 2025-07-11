@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 10:38:55 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/11 10:39:27 by yrodrigu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
@@ -49,7 +59,6 @@ void	ClapTrap::attack(const std::string &target)
 	}
 	else
 		std::cout << name <<  " has not enough energy or HP\n";
-
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/11 10:46:18 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/11 10:47:20 by yrodrigu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap()
+FragTrap::FragTrap(): ClapTrap("defaultFragTrapName")
 {
 	std::cout << "FragTrap Default Constructor called\n";
 	this->setHitPoints(100);
@@ -46,7 +57,6 @@ void    FragTrap::attack(const std::string &target)
     else
         std::cout << this->getName() <<  " has not enough energy or HP\n";
 }
-
 
 void	FragTrap::highFiveGuys(void)
 {

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 17:34:23 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/10 17:34:29 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/11 10:57:13 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-
 	std::cout << "ClapTrap Copy Constructor called\n";
 	this->operator=(obj);
 }
@@ -59,7 +58,6 @@ void	ClapTrap::attack(const std::string &target)
 	}
 	else
 		std::cout << name <<  " has not enough energy or HP\n";
-
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -79,7 +77,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "ClapTrap " << name << " has not enough energy or HP to repair\n";
-
 }
 
 std::string	ClapTrap::getName(void) const
