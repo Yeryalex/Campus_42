@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/11 12:32:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:16:06 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/11 12:14:27 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/16 18:19:27 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	DOG_HPP
-#define	DOG_HPP
+#ifndef	ANIMAL_HPP
+#	define ANIMAL_HPP
 
 #include <iostream>
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class	Dog: public Animal, public Brain
+class	Animal
 {
-	private:
-		Brain	*brain;
 	protected:
 		std::string	type;
 	public:
-		Dog();
-		Dog(const Dog &obj);
-		Dog	&operator=(const Dog &obj);
-		~Dog();
-		std::string	getType(void) const;
-		void		makeSound(void) const;
-		void		dogThinkSomething(std::string idea, unsigned int n);
-		void		dogSayIdea(unsigned int n);
+		Animal();
+		Animal(const Animal &obj);
+		Animal	&operator=(const Animal &obj);
+		virtual ~Animal();
+		virtual	std::string	getType(void) const = 0;
+		virtual void	makeSound(void) const = 0;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:20:10 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:15:18 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 18:18:42 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
 	Animal	*animals[size + 1];
 	animals[size] = NULL;
 
-	
 	std::cout << "*********************************************************\n";
 	
 	for (int i = 0; i < size / 2; i++){
