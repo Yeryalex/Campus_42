@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:32:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/15 20:37:22 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:21:09 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Cat: public Animal, public Brain
 		~Cat();
 		std::string	getType(void) const;
 		void		makeSound(void) const;
+		void		catThinkSomething(std::string idea, unsigned int n);
+		void		catSayIdea(unsigned int n) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:18:02 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 16:54:48 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 17:13:09 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void    Brain::setIdeas(std::string idea, unsigned int n)
 	if (n < 100)
 		ideas[n] = idea;
 	else
-		std::cout << "Idea number is out of range\n";
+		std::cout << "Idea number to be set is out of range\n";
 }
 
 std::string Brain::getIdeas(unsigned int n) const
