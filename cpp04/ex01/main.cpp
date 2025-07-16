@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:20:10 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 17:54:15 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:53:35 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,39 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+int	arr_size = 10;
+
 int main()
 {
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Animal	*animals[arr_size + 1];
+	animals[arr_size] = NULL;
+//	Animal	*test = new Dog();
+	Dog	*f = new Dog();
 
-	const WrongAnimal* metaWrong = new WrongAnimal();
-	const WrongAnimal* catWrong = new WrongCat();
+	f->dogThinkSomething("hola", 100);
+	f->dogSayIdea(100);
 
-	std::cout << "\n***********************************************\n\n";
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	std::cout << meta->getType() << std::endl;
-	meta->makeSound();
+/*	Dog *d = dynamic_cast<Dog*>(test);
 
-	std::cout << "\n***********************************************\n\n";
+	d->dogThinkSomething("Bones", 0);
+	d->dogSayIdea(0);
+*/	for (int i = 0; i < arr_size / 2; i++){
+		animals[i] = new Dog();
+		std::cout << animals[i]->getType() << "| Number:" << i << std::endl;
+	}
+	for (int i = arr_size / 2; i < arr_size; i++){
+		animals[i] = new Cat();
+		std::cout << animals[i]->getType() << "| Number:" << i << std::endl;
+	}
 	
-	std::cout << catWrong->getType() << " " << std::endl;
-	std::cout << metaWrong->getType() << " " << std::endl;
-	catWrong->makeSound();
-	metaWrong->makeSound();
-	
-	std::cout << "\n***********************************************\n\n";
-	
-	delete	i;
-	delete	j;
-	delete	meta;
-	delete	catWrong;
-	delete	metaWrong;
-
+/*	Dog *a = dynamic_cast<Dog*>(animals[0]);
+	if (!a)
+		return (0);
+	a->dogThinkSomething("Bones", 0);
+	a->dogSayIdea(0);
+*/	for (int i = 0; i < arr_size; i++){
+		std::cout << animals[i]->getType() << " destroyed | Number:" << i << std::endl;
+		delete	animals[i];
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/07/11 17:44:46 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/07/15 18:27:27 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFILES = main.cpp\
 		 Cat.cpp \
 		 WrongCat.cpp \
 		 WrongAnimal.cpp \
+		 Brain.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
@@ -28,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp
+%.o: %.cpp Makefile Animal.hpp Dog.hpp Cat.hpp WrongCat.hpp WrongAnimal.hpp Brain.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 14:04:19 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 16:36:02 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 Dog::Dog(): type("Dog")
 {
-	std::cout << "Dog Constructor Called\n";
+//	std::cout << "Dog Constructor Called\n";
+	this->brain = new Brain();
 }
 
 Dog::Dog(const Dog &obj)
@@ -33,7 +34,8 @@ Dog	&Dog::operator=(const Dog &obj)
 
 Dog::~Dog()
 {
-	std::cout << "Dog Destructor Called\n";
+//	std::cout << "Dog Destructor Called\n";
+	delete this->brain;
 }
 
 std::string	Dog::getType() const
@@ -44,4 +46,14 @@ std::string	Dog::getType() const
 void	Dog::makeSound(void) const
 {
 	std::cout << "Dogs sound: \"Woof Woof\"\n";
+}
+
+void	Dog::dogThinkSomething(std::string idea, unsigned int n)
+{
+	this->brain->setIdeas(idea, n);
+}
+
+void	Dog::dogSayIdea(unsigned int n)
+{
+	std::cout << this->brain->getIdeas(n) << std::endl;
 }
