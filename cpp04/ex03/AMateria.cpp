@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:04:42 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 20:52:33 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:47:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,11 @@ AMateria::~AMateria(){ return ; }
 std::string const	&AMateria::getType() const
 {
 	return (materiaType);
+}
+
+void	AMateria::use(ICharacter &target)
+{
+	(void)target;
+	std::cout << "This is generic AMateria\n";
+	return ;
 }

@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 20:15:50 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/17 19:35:44 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:37:05 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define	ICE_HPP
+#ifndef CHARACTER_HPP
+# define	CHARACTER_HPP
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
-class	Ice: public AMateria
+class	Character: public ICharacter
 {
 	private:
-		std::string iceType;
+		std::string	name;
+		AMateria *slot[4];
 	public:
-		Ice();
-		Ice(const Ice &obj);
-		Ice	&operator=(const Ice &obj);
-		~Ice();
-		AMateria	*clone() const;
-		void		use(ICharacter &target);
+		Character();
+		Character(std::string name);
+		Character(const Character &obj);
+		Character	&operator=(const Character &obj);
+		virtual ~Character();
+
+		std::string const	&getName() const;
+		void				equip(AMateria *m);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter &target);
 };
 
 #endif

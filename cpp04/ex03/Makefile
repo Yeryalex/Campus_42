@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/07/16 20:26:43 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/07/17 15:46:05 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 CFILES = main.cpp \
 		 AMateria.cpp \
 		 Ice.cpp \
+		 Cure.cpp \
+		 Character.cpp \
+		 MateriaSource.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
@@ -25,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile AMateria.hpp Ice.hpp
+%.o: %.cpp Makefile AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

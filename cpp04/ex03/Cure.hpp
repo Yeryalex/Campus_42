@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 20:21:02 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/17 19:35:53 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/16 20:15:50 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/17 19:36:11 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#ifndef CURE_HPP
+#define	CURE_HPP
 
-Ice::Ice(): AMateria("ice"){ }
+#include "AMateria.hpp"
 
-Ice::Ice(const Ice &obj): AMateria(obj) { }
-
-Ice	&Ice::operator=(const Ice &obj)
+class	Cure: public AMateria
 {
-	if (this != &obj)
-		AMateria::operator=(obj);
-	return (*this);
-}
+	private:
+		std::string cureType;
+	public:
+		Cure();
+		Cure(const Cure &obj);
+		Cure	&operator=(const Cure &obj);
+		~Cure();
+		AMateria	*clone() const;
+		void	use(ICharacter &target);
+};
 
-Ice::~Ice(){ return ;}
-
-AMateria	*Ice::clone() const
-{
-	return (new Ice());
-}
-
-void	Ice::use(ICharacter &target)
-{
-	std::cout << "shoots an ice bolt at " << target.getName() << std::endl;
-}
+#endif
