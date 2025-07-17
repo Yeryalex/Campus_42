@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 17:21:33 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:35:12 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Cat::Cat(): type("Cat")
 {
-//	std::cout << "Cat Constructor Called\n";
+	std::cout << "Cat Constructor Called\n";
 	this->brain = new Brain();
 }
 
@@ -34,7 +34,7 @@ Cat	&Cat::operator=(const Cat &obj)
 
 Cat::~Cat()
 {
-//	std::cout << "Cat Destructor Called\n";
+	std::cout << "Cat Destructor Called\n";
 	delete this->brain;
 }
 

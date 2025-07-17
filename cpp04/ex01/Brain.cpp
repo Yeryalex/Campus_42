@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:18:02 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/16 18:05:55 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:36:37 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Brain::Brain()
 { 
-//	std::cout << "Brain Constructor Called\n";
+	std::cout << "Brain Constructor Called\n";
 }
 
 Brain::Brain(const Brain &obj)
@@ -38,7 +38,7 @@ Brain &Brain::operator=(const Brain &obj)
 
 Brain::~Brain()
 {
-//	std::cout << "Brain Destructor Called\n";
+	std::cout << "Brain Destructor Called\n";
 }
 
 void    Brain::setIdeas(std::string idea, unsigned int n)

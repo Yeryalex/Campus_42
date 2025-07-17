@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:18:02 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/15 20:42:34 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:36:29 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Animal::Animal(): type("Default_Animal")
 { 
-//	std::cout << "Animal Constructor Called\n";
+	std::cout << "Animal Constructor Called\n";
 }
 
 Animal::Animal(const Animal &obj)
@@ -33,7 +33,7 @@ Animal &Animal::operator=(const Animal &obj)
 
 Animal::~Animal()
 {
-//	std::cout << "Animal Destructor Called\n";
+	std::cout << "Animal Destructor Called\n";
 }
 
 std::string	Animal::getType(void) const
