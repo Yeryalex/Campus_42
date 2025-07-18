@@ -15,17 +15,17 @@
 ScavTrap::ScavTrap(): ClapTrap("defaultName")
 {
 	std::cout << "ScavTrap Default Constructor called\n";
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string assignedName): ClapTrap(assignedName)
 {
 	std::cout << "ScavTrap Constructor called\n";
-	this->setHitPoints(100);
-	this->setEnergyPoints(50);
-	this->setAttackDamage(20);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap()
@@ -54,12 +54,12 @@ void	ScavTrap::guardGate()
 
 void	ScavTrap::attack(const std::string &target)
 {
-	if (this->getEnergyPoints() > 0 && this->getHitPoints() > 0)
+	if (this->energyPoints > 0 && this->hitPoints > 0)
 	{
-		substractEnergyPoints(1);
-		std::cout << "ScavTrap " << this->getName() << " attacks " << target;
-		std::cout << ", causing " << this->getAttackDamage() << " points of damage!\n";
+		energyPoints--;
+		std::cout << "ScavTrap " << this->name << " attacks " << target;
+		std::cout << ", causing " << this->attackDamage << " points of damage!\n";
 	}
 	else
-		std::cout << this->getName() <<  " has not enough energy or HP\n";
+		std::cout << this->name <<  " has not enough energy or HP\n";
 }

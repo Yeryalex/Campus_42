@@ -1,61 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 15:44:22 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 11:17:14 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/11 10:36:03 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/11 10:37:37 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(): ClapTrap("DiamondTrap_Name_clap_name"), 
-	name("DiamondTrapDefaultName")
+DiamondTrap::DiamondTrap(): ClapTrap("Diamond_default_clap_name"), name("Diamond_defaultName")
 {
-	std::cout << "DiamondTrap Default Constructor Called\n";
-	FragTrap tempFrag;
-	ScavTrap tempScav;
-
-	this->ClapTrap::setHitPoints(tempFrag.getHitPoints());
-	this->ClapTrap::setEnergyPoints(tempScav.getEnergyPoints());
-	this->ClapTrap::setAttackDamage(tempFrag.getAttackDamage());
+	std::cout << "DiamondTrap Default Constructor called\n";
+	this->hitPoints = FragTrap::defaultHitPoints;
+	this->energyPoints = ScavTrap::defaultEnergyPoints;
+	this->attackDamage = FragTrap::defaultAttackDamage;
 }
 
-DiamondTrap::DiamondTrap(std::string assignedName): ClapTrap(assignedName + "_clap_name"), 
-	name(assignedName)
+DiamondTrap::DiamondTrap(std::string assignedName): ClapTrap(assignedName + "_clap_name"), name(assignedName)
 {
-	std::cout << "DiamondTrap Constructor Called\n";
-	FragTrap tempFrag;
-	ScavTrap tempScav;
-
-	this->ClapTrap::setHitPoints(tempFrag.getHitPoints());
-	this->ClapTrap::setEnergyPoints(tempScav.getEnergyPoints());
-	this->ClapTrap::setAttackDamage(tempFrag.getAttackDamage());
-}
-
-DiamondTrap::DiamondTrap(const DiamondTrap &obj)
-{
-	std::cout << "DiamondTrap Copy Constructor called\n"; 
-	this->operator=(obj);
-}
-
-DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &obj)
-{
-	std::cout << "DiamondTrap Copy assignment operator called\n"; 
-	if (this != &obj)
-	{
-		ClapTrap::operator=(obj);
-		this->name = obj.name;
-	}
-	return (*this);
+	std::cout << "DiamondTrap Constructor called\n";
+	this->hitPoints = FragTrap::defaultHitPoints;
+	this->energyPoints = ScavTrap::defaultEnergyPoints;
+	this->attackDamage = FragTrap::defaultAttackDamage;
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap Destructor Called\n";
+	std::cout << "DiamondTrap destructor called\n";
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap &obj): ClapTrap(obj), ScavTrap(obj), FragTrap(obj), name(obj.name)
+{
+	std::cout << "DiamondTrap copy constructor called\n";	
+}
+
+DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &obj)
+{
+	std::cout << "DiamondTrap copy assignment operator called\n";
+	if (this != &obj)
+		ClapTrap::operator=(obj);
+	return (*this);
 }
 
 void	DiamondTrap::attack(const std::string &target)
@@ -65,6 +53,7 @@ void	DiamondTrap::attack(const std::string &target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "My name from DiamondTrap is: " << this->name << std::endl;
-	std::cout << "My name from ClapTrap is: " << ClapTrap::getName() << std::endl;
+	std::cout << "Hi! I am the DiamondTrap Class which name is " << name << ".\n";
+	std::cout << "oh!! do not forget that ClapTrap base class name is " << ClapTrap::name << ".\n";
 }
+

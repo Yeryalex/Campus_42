@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 17:34:23 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 10:57:13 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/11 10:38:55 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/11 10:39:27 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
+
 	std::cout << "ClapTrap Copy Constructor called\n";
 	this->operator=(obj);
 }
@@ -77,6 +78,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else
 		std::cout << "ClapTrap " << name << " has not enough energy or HP to repair\n";
+
 }
 
 std::string	ClapTrap::getName(void) const
@@ -97,29 +99,4 @@ unsigned int	ClapTrap::getEnergyPoints(void) const
 unsigned int	ClapTrap::getAttackDamage(void) const
 {
 	return (attackDamage);
-}
-
-void	ClapTrap::setName(std::string assignedName)
-{
-	name = assignedName;
-}
-
-void	ClapTrap::setHitPoints(unsigned int amount)
-{
-	hitPoints = amount;
-}
-
-void	ClapTrap::setEnergyPoints(unsigned int amount)
-{
-	energyPoints = amount;
-}
-
-void	ClapTrap::substractEnergyPoints(unsigned int amount)
-{
-	energyPoints -= amount;
-}
-
-void	ClapTrap::setAttackDamage(unsigned int amount)
-{
-	attackDamage = amount;
 }

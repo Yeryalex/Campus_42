@@ -19,7 +19,7 @@ int main()
 
 	a.attack("other");
 	a.beRepaired(2);
-	std::cout <<  a.getHitPoints() << std::endl;
+	std::cout << a.getHitPoints() << std::endl;
 	std::cout << a.getEnergyPoints() << std::endl;
 	
 	a.takeDamage(100);
@@ -37,4 +37,6 @@ int main()
 	std::cout << a.getEnergyPoints() << std::endl;
 
 	a.guardGate();
+	
+	return (0);
 }

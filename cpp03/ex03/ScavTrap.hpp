@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 17:35:30 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/10 17:35:41 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/11 10:34:14 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/11 10:41:41 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ScavTrap: virtual public ClapTrap
 		~ScavTrap();
 		void	attack(const std::string &target);
 		void	guardGate();
+		static const int defaultEnergyPoints = 50;
 };
 
 #endif

@@ -100,28 +100,3 @@ unsigned int	ClapTrap::getAttackDamage(void) const
 {
 	return (attackDamage);
 }
-
-void	ClapTrap::setName(std::string assignedName)
-{
-	name = assignedName;
-}
-
-void	ClapTrap::setHitPoints(unsigned int amount)
-{
-	hitPoints = amount;
-}
-
-void	ClapTrap::setEnergyPoints(unsigned int amount)
-{
-	energyPoints = amount;
-}
-
-void	ClapTrap::substractEnergyPoints(unsigned int amount)
-{
-	energyPoints -= amount;
-}
-
-void	ClapTrap::setAttackDamage(unsigned int amount)
-{
-	attackDamage = amount;
-}
