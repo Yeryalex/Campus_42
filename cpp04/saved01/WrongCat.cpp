@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,45 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "WrongCat.hpp"
 
-Brain::Brain()
+WrongCat::WrongCat(): type("WrongCat")
 {
-	std::cout << "Brain Constructor Called\n";
+	std::cout << "WrongCat Constructor Called\n";
 }
 
-Brain::Brain(const Brain &obj)
+WrongCat::WrongCat(const WrongCat &obj)
 {
-	std::cout << "Brain Copy Constructor Called\n";
+	std::cout << "WrongCat Copy Constructor Called\n";
 	this->operator=(obj);
 }
 
-Brain	&Brain::operator=(const Brain &obj)
+WrongCat	&WrongCat::operator=(const WrongCat &obj)
 {
-	std::cout << "Brain copy assignment operator Called\n";
+	std::cout << "WrongCat copy assignment operator Called\n";
 	if (this != &obj)
-	{
-		for (int i = 0; i < 100; i++)
-			ideas[i] = obj.ideas[i];
-	}
+		this->type = obj.type;
 	return (*this);
 }
 
-Brain::~Brain()
+WrongCat::~WrongCat()
 {
-	std::cout << "Brain Destructor Called\n";
+	std::cout << "WrongCat Destructor Called\n";
 }
 
-void	Brain::setIdeas(std::string idea, unsigned int n)
+std::string	WrongCat::getType() const
 {
-	if (n < 100)
-		ideas[n] = idea;
-	else
-		std::cout << "The current animal cannot have more than 100 ideas!\n";
+	return (type);
 }
 
-std::string	Brain::getIdeas(unsigned int n)
+void	WrongCat::makeSound(void) const
 {
-	std::string mainIdea =  (n < 100) ? ideas[n] : "The current animal have a brain for only 100 ideas, Try a different number!";
-	return (mainIdea);
+	std::cout << "WrongCats sound: \"Meoowww\"\n";
 }

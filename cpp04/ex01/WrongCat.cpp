@@ -12,33 +12,27 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(): type("WrongCat")
+WrongCat::WrongCat(): WrongAnimal("WrongCat")
 {
 	std::cout << "WrongCat Constructor Called\n";
 }
 
-WrongCat::WrongCat(const WrongCat &obj)
+WrongCat::WrongCat(const WrongCat &obj): WrongAnimal(obj)
 {
 	std::cout << "WrongCat Copy Constructor Called\n";
-	this->operator=(obj);
 }
 
 WrongCat	&WrongCat::operator=(const WrongCat &obj)
 {
 	std::cout << "WrongCat copy assignment operator Called\n";
 	if (this != &obj)
-		this->type = obj.type;
+		WrongAnimal::operator=(obj);
 	return (*this);
 }
 
 WrongCat::~WrongCat()
 {
 	std::cout << "WrongCat Destructor Called\n";
-}
-
-std::string	WrongCat::getType() const
-{
-	return (type);
 }
 
 void	WrongCat::makeSound(void) const

@@ -1,61 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 14:04:19 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/16 19:36:50 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
-Dog::Dog(): Animal("Dog")
+Cat::Cat(): type("Cat")
 {
-	std::cout << "Dog Constructor Called\n";
-	brain = new Brain();
+	std::cout << "Cat Constructor Called\n";
+	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog &obj): Animal(obj)
+Cat::Cat(const Cat &obj)
 {
-	std::cout << "Dog Copy Constructor Called\n";
-	if (brain)
-		delete brain;
-	brain = new Brain(*obj.brain);
+	std::cout << "Cat Copy Constructor Called\n";
+	this->operator=(obj);
 }
 
-Dog	&Dog::operator=(const Dog &obj)
+Cat	&Cat::operator=(const Cat &obj)
 {
-	std::cout << "Dog copy assignment operator Called\n";
+	std::cout << "Cat copy assignment operator Called\n";
 	if (this != &obj)
-	{
-		Animal::operator=(obj);
-		if (brain)
-			delete brain;
-		brain = new Brain(*obj.brain);
-	}
+		this->type = obj.type;
 	return (*this);
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	std::cout << "Dog Destructor Called\n";
-	delete brain;
+	std::cout << "Cat Destructor Called\n";
+	delete this->brain;
 }
 
-void	Dog::makeSound(void) const
+std::string	Cat::getType() const
 {
-	std::cout << "Dogs sound: \"Woof Woof\"\n";
+	return (type);
 }
 
-void	Dog::dogThinkSomething(std::string idea, unsigned int n)
+void	Cat::makeSound(void) const
+{
+	std::cout << "Cats sound: \"Meoowww\"\n";
+}
+
+void	Cat::catThinkSomething(std::string idea, unsigned int n)
 {
 	brain->setIdeas(idea, n);
 }
 
-void	Dog::dogSayIdea(unsigned int n)
+void	Cat::catSayIdea(unsigned int n) const
 {
 	std::cout << brain->getIdeas(n) << std::endl;
 }
+
