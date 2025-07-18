@@ -18,14 +18,11 @@
 
 class	Cat: public Animal
 {
-	protected:
-		std::string	type;
 	public:
 		Cat();
 		Cat(const Cat &obj);
 		Cat	&operator=(const Cat &obj);
 		~Cat();
-		std::string	getType(void) const;
 		void		makeSound(void) const;
 };
 

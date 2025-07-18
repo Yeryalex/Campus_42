@@ -17,6 +17,11 @@ Animal::Animal(): type("Default_Animal")
 	std::cout << "Animal Constructor Called\n";
 }
 
+Animal::Animal(std::string typeName): type(typeName)
+{ 
+	std::cout << "Animal Constructor Called\n";
+}
+
 Animal::Animal(const Animal &obj)
 {
 	std::cout << "Animal Copy Constructor Called\n";

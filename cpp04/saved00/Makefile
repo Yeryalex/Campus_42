@@ -17,7 +17,7 @@ CFILES = main.cpp\
 		 Dog.cpp \
 		 Cat.cpp \
 		 WrongCat.cpp \
-		WrongAnimal.cpp \
+		 WrongAnimal.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 

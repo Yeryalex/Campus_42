@@ -17,11 +17,6 @@ WrongAnimal::WrongAnimal(): type("Default_WrongAnimal")
 	std::cout << "WrongAnimal Constructor Called\n";
 }
 
-WrongAnimal::WrongAnimal(std::string typeName): type(typeName)
-{ 
-	std::cout << "WrongAnimal Constructor Called\n";
-}
-
 WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
 	std::cout << "WrongAnimal Copy Constructor Called\n";

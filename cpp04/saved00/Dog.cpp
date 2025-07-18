@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 14:09:11 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/11 14:04:19 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat(): WrongAnimal("WrongCat")
+Dog::Dog(): type("Dog")
 {
-	std::cout << "WrongCat Constructor Called\n";
+	std::cout << "Dog Constructor Called\n";
 }
 
-WrongCat::WrongCat(const WrongCat &obj): WrongAnimal(obj)
+Dog::Dog(const Dog &obj)
 {
-	std::cout << "WrongCat Copy Constructor Called\n";
+	std::cout << "Dog Copy Constructor Called\n";
+	this->operator=(obj);
 }
 
-WrongCat	&WrongCat::operator=(const WrongCat &obj)
+Dog	&Dog::operator=(const Dog &obj)
 {
-	std::cout << "WrongCat copy assignment operator Called\n";
+	std::cout << "Dog copy assignment operator Called\n";
 	if (this != &obj)
-		WrongAnimal::operator=(obj);
+		this->type = obj.type;
 	return (*this);
 }
 
-WrongCat::~WrongCat()
+Dog::~Dog()
 {
-	std::cout << "WrongCat Destructor Called\n";
+	std::cout << "Dog Destructor Called\n";
 }
 
-void	WrongCat::makeSound(void) const
+std::string	Dog::getType() const
 {
-	std::cout << "WrongCats sound: \"Meoowww\"\n";
+	return (type);
+}
+
+void	Dog::makeSound(void) const
+{
+	std::cout << "Dogs sound: \"Woof Woof\"\n";
 }
