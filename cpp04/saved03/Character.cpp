@@ -5,17 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:49:17 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/19 16:43:27 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/16 20:21:02 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/17 19:21:33 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(std::string newName): name(newName)
+Character::Character(): name("default_name")
 {
 	for (int i = 0; i < 4; i++)
-		this->inventory[i] = NULL;
+		slot[i] = NULL;
+}
+
+Character::Character(std::string name):name(name)
+{
+	for (int i = 0; i < 4; i++)
+		slot[i] = NULL;
 }
 
 Character::Character(const Character &obj)
@@ -27,12 +33,15 @@ Character	&Character::operator=(const Character &obj)
 {
 	if (this != &obj)
 	{
-		this->name = obj.name;
 		for (int i = 0; i < 4; i++)
 		{
-			if (this->inventory[i])
-				delete this->inventory[i];
-			this->inventory[i] = obj.inventory[i]->clone();
+			if (slot[i])
+			{
+				delete slot[i];
+				slot[i] = NULL;
+			}
+			if (obj.slot[i])
+				slot[i] = obj.slot[i]->clone();
 		}
 	}
 	return (*this);
@@ -42,41 +51,38 @@ Character::~Character()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory[i])
-			delete this->inventory[i];
+		if (slot[i])
+			delete slot[i];
 	}
 }
 
-std::string const	&Character::getName() const 
+std::string const &Character::getName() const
 {
-	return (this->name);
+	return (name);
 }
 
 void	Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->inventory[i])
+		if (slot[i] == NULL)
 		{
-			this->inventory[i] = m;
+			slot[i] = m->clone();
 			return ;
 		}
 	}
-	std::cout << "It looks like the inventory is full\n" << std::endl;
 }
 
 void	Character::unequip(int idx)
 {
-	if (this->inventory[idx] && idx >= 0 && idx < 4)
-		this->inventory[idx] = NULL;
-	else
-		std::cout << "You can not unequip something that does not exist\n";
+	if (idx >= 0 && idx <= 3)
+	{	
+		slot[idx] = NULL;
+	}
 }
 
 void	Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx < 4)
-		this->inventory[idx]->AMateria::use(target);
-	else
-		std::cout << "Character can not use something that does not exist\n";
+	if (idx >= 0 && idx <= 4 && slot[idx])
+		slot[idx]->use(target);
 }

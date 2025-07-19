@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:05:13 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/19 15:28:12 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/16 20:04:42 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/17 14:47:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-//AMateria::AMateria(): type("materia_default"){}
+AMateria::AMateria(): materiaType("materiaType_Defeault") { return ; }
 
-AMateria::AMateria(std::string const &materia): type(materia){}
+AMateria::AMateria(std::string const &type): materiaType(type) { return ; }
 
 AMateria::AMateria(const AMateria &obj)
 {
@@ -24,19 +24,20 @@ AMateria::AMateria(const AMateria &obj)
 AMateria	&AMateria::operator=(const AMateria &obj)
 {
 	if (this != &obj)
-		this->type = obj.type;
+		this->materiaType = obj.materiaType;
 	return (*this);
 }
 
-AMateria::~AMateria(){}
+AMateria::~AMateria(){ return ; }
 
 std::string const	&AMateria::getType() const
 {
-	return (type);
+	return (materiaType);
 }
 
-/*
 void	AMateria::use(ICharacter &target)
 {
-
-}*/
+	(void)target;
+	std::cout << "This is generic AMateria\n";
+	return ;
+}

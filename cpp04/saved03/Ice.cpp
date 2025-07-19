@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 15:05:13 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/19 16:33:32 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/16 20:21:02 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/17 19:35:53 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(): AMateria("ice") { return ;}
+Ice::Ice(): AMateria("ice"){ }
 
-Ice::Ice(const Ice &obj): AMateria(obj) { return ;}
+Ice::Ice(const Ice &obj): AMateria(obj) { }
 
 Ice	&Ice::operator=(const Ice &obj)
 {
@@ -23,7 +23,7 @@ Ice	&Ice::operator=(const Ice &obj)
 	return (*this);
 }
 
-Ice::~Ice(){}
+Ice::~Ice(){ return ;}
 
 AMateria	*Ice::clone() const
 {
@@ -32,5 +32,5 @@ AMateria	*Ice::clone() const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
+	std::cout << "shoots an ice bolt at " << target.getName() << std::endl;
 }
