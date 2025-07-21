@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 14:04:19 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:38:27 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ Dog::Dog(): Animal("Dog")
 Dog::Dog(const Dog &obj): Animal(obj)
 {
 	std::cout << "Dog Copy Constructor Called\n";
-	if (brain)
-		delete brain;
 	brain = new Brain(*obj.brain);
 }
 

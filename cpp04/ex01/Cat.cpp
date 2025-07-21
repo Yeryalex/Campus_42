@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 12:40:20 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/11 14:09:11 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:32:38 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ Cat::Cat(): Animal("Cat")
 Cat::Cat(const Cat &obj): Animal(obj)
 {
 	std::cout << "Cat Copy Constructor Called\n";
-	if (brain)
-		delete brain;
 	brain = new Brain(*obj.brain);
 }
 

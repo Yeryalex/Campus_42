@@ -6,13 +6,11 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:05:13 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/19 15:28:12 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:52 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
-
-//AMateria::AMateria(): type("materia_default"){}
 
 AMateria::AMateria(std::string const &materia): type(materia){}
 
@@ -35,8 +33,7 @@ std::string const	&AMateria::getType() const
 	return (type);
 }
 
-/*
 void	AMateria::use(ICharacter &target)
 {
-
-}*/
+	(void)target;
+}

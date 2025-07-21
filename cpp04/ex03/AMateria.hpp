@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 15:02:29 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/19 16:41:52 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/21 18:43:42 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class AMateria
 		std::string type;
 	public:
 		AMateria(std::string const &type);
-//		AMateria();
 		AMateria(const AMateria &obj);
 		AMateria &operator=(const AMateria &obj);
 		virtual ~AMateria();
