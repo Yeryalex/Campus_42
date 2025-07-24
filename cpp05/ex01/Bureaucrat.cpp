@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:15 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/23 21:24:46 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/24 16:16:00 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,18 @@ void	Bureaucrat::incrementGrade(void) {
 void	Bureaucrat::decrementGrade(void) {
 	
 	--(*this);
+}
+
+void	Bureaucrat::signForm(Form &form) {
+
+	try {
+		form.beSigned(*this);
+	}
+	catch(const std::exception &e) {
+		
+		std::cout << this->getName() << " couldn't sign " << form.getName();
+   		std::cout << " because " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " signed " << form.getName() << std::endl;
 }
