@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:27 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/23 21:36:08 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/24 13:13:15 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ int main() {
 
 	Bureaucrat Bob("Bob", 1);
 	std::cout << Bob;
+
+	try {
+		Bob++;
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what();
+	}
 
 	try {
 		Bureaucrat a("Yery", 1);
