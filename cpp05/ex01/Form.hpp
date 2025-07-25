@@ -18,6 +18,7 @@
 #include "Bureaucrat.hpp"
 #include <iomanip>
 #include <string>
+#include <sstream>
 
 class Bureaucrat;
 

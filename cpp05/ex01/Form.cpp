@@ -15,7 +15,13 @@
 Form::Form(): name("default_name"), gradeToSign(10), gradeToExecute(10), _signed(false) { }
 
 Form::Form(const std::string &name, const int gradeToSign, const int gradeToExecute):
-	name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute), _signed(false) {}
+	name(name), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute), _signed(false) {
+
+	if (gradeToSign < 1 || gradeToExecute < 1)
+		throw GradeTooHighException();
+	if (gradeToSign > 150 || gradeToExecute > 150)
+		throw GradeTooLowException();
+}
 
 Form::Form(const Form &obj): name(obj.name), gradeToSign(obj.gradeToSign), gradeToExecute(obj.gradeToExecute), _signed(obj._signed) {}	
 
@@ -51,17 +57,25 @@ bool	Form::getSigned(void) const {
 
 std::ostream	&operator<<(std::ostream &out, const Form &obj) {
 
-	std::string nameForm = "name form: " + obj.getName();
-	std::string requiredSign = "required grade to Sign: " + char(obj.getGradeToSign());
-	std::string requiredExecute = "required grade to Execute: " + char(obj.getGradeToExecute());
-	std::string status = "Form Status: " + char(obj.getSigned());
+	std::ostringstream gradeS;
+	std::ostringstream gradeEx;
+	std::ostringstream statusValue;
+
+	gradeS << obj.getGradeToSign();
+	gradeEx << obj.getGradeToExecute();
+	statusValue << obj.getSigned();
+
+	std::string nameForm = "* name form: " + obj.getName();
+	std::string requiredSign = "* required grade to Sign: " + gradeS.str();
+	std::string requiredExecute = "* required grade to Execute: " + gradeEx.str();
+	std::string status = "* Form Status: " + statusValue.str();
 
 	out << "**********************************\n";
 	out <<  nameForm << std::setw(34 - nameForm.length()) << "*" << std::endl;
 	out <<  requiredSign << std::setw(34 - requiredSign.length()) << "*" << std::endl;
 	out <<  requiredExecute << std::setw(34 - requiredExecute.length()) << "*" << std::endl;
 	out <<  status << std::setw(34 - status.length()) << "*" << std::endl;
-	out << "**********************************\n\n";
+	out << "**********************************\n";
 	return (out);
 }
 
@@ -75,10 +89,10 @@ bool	Form::beSigned(Bureaucrat &bureaucrat) {
 
 const char* Form::GradeTooHighException::what() const throw() {
 
-	return ("Grade of bureaucrat is GREATER than the grade required by the form!");
+	return ("Grade is GREATER than the grade required by the form!");
 }
 
 const char* Form::GradeTooLowException::what() const throw() {
 
-	return ("Grade of bureaucrat is LOWER than the grade required by the form!");
+	return ("Grade is LOWER than the grade required by the form!");
 }
