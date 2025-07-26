@@ -17,10 +17,11 @@
 int main() {
 	try
 	{
-		Bureaucrat a("Yery", 50);
+		Bureaucrat a("Yery", 146);
 		ShrubberyCreationForm f("form#001");
 		std::cout << f;
 		a.signForm(f);
+		a.executeForm(f);	
 	}
 	catch(const std::exception &e) {
 		
