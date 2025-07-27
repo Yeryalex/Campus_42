@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define	SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define	ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
+#include "cstdlib"
+#include "ctime"
 
-class ShrubberyCreationForm: public AForm {
+class RobotomyRequestForm: public AForm {
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &obj);
-		~ShrubberyCreationForm();
-		void	fileCreation(Bureaucrat const &executor) const;
-		void	execute(Bureaucrat const &executor) const;
+		RobotomyRequestForm();
+		RobotomyRequestForm(const std::string &target);
+		RobotomyRequestForm(const RobotomyRequestForm &obj);
+		RobotomyRequestForm	&operator=(const RobotomyRequestForm &obj);
+		~RobotomyRequestForm();
 
+		void	execute(Bureaucrat const &executor) const;
+		void	drillNoise(Bureaucrat const &target) const;
+		
 		class FormNotSigned: public std::exception {
 			
 			const char *what() const throw();

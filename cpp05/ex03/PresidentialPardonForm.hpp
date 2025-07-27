@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,30 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define	SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define	PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <fstream>
 
-class ShrubberyCreationForm: public AForm {
+class PresidentialPardonForm: public AForm {
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &obj);
-		~ShrubberyCreationForm();
-		void	fileCreation(Bureaucrat const &executor) const;
-		void	execute(Bureaucrat const &executor) const;
+		PresidentialPardonForm();
+		PresidentialPardonForm(const std::string &target);
+		PresidentialPardonForm(const PresidentialPardonForm &obj);
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &obj);
+		~PresidentialPardonForm();
 
+		void	execute(Bureaucrat const &executor) const;	
 		class FormNotSigned: public std::exception {
 			
 			const char *what() const throw();
 		};
 		class FormNotAbleToExecute: public std::exception {
-			
-			const char *what() const throw();
+		
+			const char* what() const throw();
 		};
 }; 
 

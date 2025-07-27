@@ -18,6 +18,7 @@ CFILES = main.cpp \
 		 ShrubberyCreationForm.cpp \
 		 RobotomyRequestForm.cpp \
 		 PresidentialPardonForm.cpp \
+		 Intern.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
@@ -28,7 +29,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+%.o: %.cpp Makefile Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   Intern.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define	SHRUBBERYCREATIONFORM_HPP
+#ifndef INTERN_HPP
+# define	INTERN_HPP
 
-#include "AForm.hpp"
-#include <fstream>
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-class ShrubberyCreationForm: public AForm {
+class Intern {
 
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &obj);
-		~ShrubberyCreationForm();
-		void	fileCreation(Bureaucrat const &executor) const;
-		void	execute(Bureaucrat const &executor) const;
-
-		class FormNotSigned: public std::exception {
-			
-			const char *what() const throw();
-		};
-		class FormNotAbleToExecute: public std::exception {
-			
-			const char *what() const throw();
-		};
+		Intern();
+		Intern(const Intern &obj);
+		Intern	&operator=(const Intern &obj);
+		~Intern();
+		AForm	*makeForm(const std::string &ameForm, const std::string &targetForm);
 }; 
 
 #endif
