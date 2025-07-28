@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/28 14:10:55 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/28 18:49:53 by yrodrigu         ###   ########.fr       */
+/*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
+/*   Updated: 2025/07/28 14:18:09 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <iostream>
-#include <typeinfo>
 
-int main() {
+ScalarConverter::ScalarConverter(){}
 
-	std::string str = "0";
-	int num = 1;
+ScalarConverter::ScalarConverter(const ScalarConverter &obj) {
 
-	const std::type_info	&a  = typeid(str);
-	const std::type_info	&b  = typeid(num);
-	
-	std::cout << ((a == typeid(int)) ? str : "failed\n");
-	std::cout << ((b == typeid(int)) ? str : "failed\n");
-	return (0);
+	this->operator=(obj);
 }
+
+ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &obj) {
+
+	if (this != &obj)
+		return (*this);
+	return (*this);
+}
+
+ScalarConverter::~ScalarConverter() {}
