@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:55 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/28 18:49:53 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/29 15:45:36 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 #include <iostream>
 #include <typeinfo>
 
-int main() {
+int main(int argc, char **argv) {
 
-	std::string str = "0";
-	int num = 1;
+	if (argc != 2)
+		return (std::cout << "Pass only one argument.\n", 1);
 
-	const std::type_info	&a  = typeid(str);
-	const std::type_info	&b  = typeid(num);
-	
-	std::cout << ((a == typeid(int)) ? str : "failed\n");
-	std::cout << ((b == typeid(int)) ? str : "failed\n");
+	ScalarConverter::convert(argv[1]);	
+
 	return (0);
 }

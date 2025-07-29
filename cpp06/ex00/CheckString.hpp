@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   CheckString.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/29 16:21:39 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/29 16:10:18 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-# define	SCALARCONVERTER_HPP
+#ifndef CHECKSTRING_HPP
+# define	CHECKSTRING_HPP
 
-#include "CheckString.hpp"
 #include <iostream>
 #include <string>
 
-class ScalarConverter {
+class CheckString {
 
 	public:
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter &obj);
-		ScalarConverter &operator=(const ScalarConverter &obj);
-		~ScalarConverter();
-		static void	convert(const std::string &str);
+		CheckString();
+		CheckString(const CheckString &obj);
+		CheckString &operator=(const CheckString &obj);
+		~CheckString();
+	 	static int	dotFound(const std::string &str);
+	 	static int	floatFound(const std::string &str);
 };
 
 #endif
