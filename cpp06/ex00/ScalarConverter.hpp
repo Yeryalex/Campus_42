@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/29 16:21:39 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/18 11:32:04 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "CheckString.hpp"
 #include <iostream>
 #include <string>
+#include <sstream>
+#include <cstdlib>
 
 class ScalarConverter {
 
@@ -24,6 +26,7 @@ class ScalarConverter {
 		ScalarConverter(const ScalarConverter &obj);
 		ScalarConverter &operator=(const ScalarConverter &obj);
 		~ScalarConverter();
+	
 		static void	convert(const std::string &str);
 };
 
