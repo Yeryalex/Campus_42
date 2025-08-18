@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:16:45 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:50:01 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:38:14 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ std::ostream	&operator<<(std::ostream &out, const AForm &obj) {
 	std::string requiredExecute = "* required grade to Execute: " + gradeEx.str();
 	std::string status = "* Form Status: " + statusValue.str();
 
-	out << "**********************************\n";
-	out <<  nameAForm << std::setw(34 - nameAForm.length()) << "*" << std::endl;
-	out <<  requiredSign << std::setw(34 - requiredSign.length()) << "*" << std::endl;
-	out <<  requiredExecute << std::setw(34 - requiredExecute.length()) << "*" << std::endl;
-	out <<  status << std::setw(34 - status.length()) << "*" << std::endl;
-	out << "**********************************\n";
+	out << "*************************************\n";
+	out <<  nameAForm << std::setw(37 - nameAForm.length()) << "*" << std::endl;
+	out <<  requiredSign << std::setw(37 - requiredSign.length()) << "*" << std::endl;
+	out <<  requiredExecute << std::setw(37 - requiredExecute.length()) << "*" << std::endl;
+	out <<  status << std::setw(37 - status.length()) << "*" << std::endl;
+	out << "*************************************\n";
 	return (out);
 }
 

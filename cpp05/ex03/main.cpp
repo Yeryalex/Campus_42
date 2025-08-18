@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:27 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:23:26 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:54:41 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main() {
 
 	Intern	intern;
 
-	AForm	*allForm[3];
+	AForm	*allForm[4];
 
 	allForm[0] = intern.makeForm("ShrubberyCreationForm", "_Form#0231");
 	allForm[1] = intern.makeForm("RobotomyRequestForm", "_Form#00241");
@@ -71,31 +71,8 @@ int main() {
 	AForm *fail = intern.makeForm("random Form", "random target");
 	(void)fail;
 
-	printHeader("TEST: POINTERS REPRESENTATION");
-	
-	Intern	*pIntern;
-	AForm	*pForm;
-	Bureaucrat	*pBureaucrat;
-
-	pIntern = new Intern();
-	pForm = pIntern->makeForm("ShrubberyCreationForm", "pointer_target");
-	pBureaucrat = new Bureaucrat;
-
-	try {
-		pBureaucrat->signForm(*pForm);
-		pBureaucrat->executeForm(*pForm);
-	}
-	catch (const std::exception &e) {
-	
-		std::cout << e.what();
-	
-	}
-	delete pIntern;
-	delete pForm;
-	delete pBureaucrat;
-	
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; i++)
 		delete allForm[i];
-	}
+
 	return (0);
 }

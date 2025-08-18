@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:27 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:23:26 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:41:50 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ void	printHeader(std::string message) {
 }
 int main() {
 
+	std::ostringstream x;
+
+	x << 4;
+
+	std::cout << x.str() << std::endl;
+
 	printHeader("THIS IS A TEST FOR SHRUBBERY");	
 
 	try
 	{
 		Bureaucrat a("Yery", 150);
-		ShrubberyCreationForm f("form#010");
+		ShrubberyCreationForm f("TARGET10");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	
@@ -41,7 +47,7 @@ int main() {
 	try
 	{
 		Bureaucrat a("Yery", 137);
-		ShrubberyCreationForm f("form#020");
+		ShrubberyCreationForm f("TARGET20");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	
@@ -58,7 +64,7 @@ int main() {
 	try
 	{
 		Bureaucrat a("Yery", 46);
-		RobotomyRequestForm f("form#030");
+		RobotomyRequestForm f("TARGET30");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	
@@ -70,7 +76,7 @@ int main() {
 	try
 	{
 		Bureaucrat a("Yery", 45);
-		RobotomyRequestForm f("form#040");
+		RobotomyRequestForm f("TARGET40");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	
@@ -87,7 +93,7 @@ int main() {
 	try
 	{
 		Bureaucrat a("Yery", 6);
-		PresidentialPardonForm f("form#050");
+		PresidentialPardonForm f("TARGET50");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	
@@ -99,7 +105,7 @@ int main() {
 	try
 	{
 		Bureaucrat a("Yery", 5);
-		PresidentialPardonForm f("form#060");
+		PresidentialPardonForm f("TARGET60");
 		std::cout << f;
 		a.signForm(f);
 		a.executeForm(f);	

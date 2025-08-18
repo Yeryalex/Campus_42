@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:16:45 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:50:01 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/18 09:30:49 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ Form::Form(const std::string &name, const int gradeToSign, const int gradeToExec
 }
 
 Form::Form(const Form &obj): name(obj.name), gradeToSign(obj.gradeToSign), gradeToExecute(obj.gradeToExecute), _signed(obj._signed) {}	
-
 
 Form	&Form::operator=(const Form &obj) {
 

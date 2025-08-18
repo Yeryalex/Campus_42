@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:15 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:16:00 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/28 13:58:07 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Grade provided is too LOW! (range 1 - 150).\n");
 };
 
-Bureaucrat::Bureaucrat(): name("default_bureaucrat"), grade(1) {}
+Bureaucrat::Bureaucrat(): name("default_bureaucrat"), grade(150) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade): name(name) {
 	if (grade > 150)
@@ -124,4 +124,3 @@ void	Bureaucrat::executeForm(AForm const &form) const {
 		std::cout << " because " << e.what() << std::endl;
 	}
 }
-

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 13:15:28 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:39:21 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/08/11 15:19:35 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class AForm {
 		int					getGradeToExecute(void) const;
 		bool				getSigned(void) const;
 		bool				beSigned(Bureaucrat	&bureaucrat);
-		virtual	void		execute(Bureaucrat const &executor) const = 0;
+		virtual	void		execute(Bureaucrat const &bureaucrat) const = 0;
 
 		class GradeTooHighException: public std::exception {
 			public:

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 14:46:15 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/24 16:16:00 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/07/28 13:58:07 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,4 +124,3 @@ void	Bureaucrat::executeForm(AForm const &form) const {
 		std::cout << " because " << e.what() << std::endl;
 	}
 }
-
