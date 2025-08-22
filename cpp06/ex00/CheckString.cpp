@@ -54,11 +54,13 @@ int	floatFound(const std::string &str) {
 		return (0);
 	return (found);
 }
-
+/*
 int	isValid(const std::string &str) {
 
 	if ()
 }
+*/
+
 
 int	isChar(const std::string &str) {
 
