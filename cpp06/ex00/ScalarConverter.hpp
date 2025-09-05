@@ -19,6 +19,14 @@
 #include <sstream>
 #include <cstdlib>
 
+enum e_type {
+
+	NONE,
+	CHAR,
+	INT,
+	FLOAT
+};
+
 class ScalarConverter {
 
 	public:

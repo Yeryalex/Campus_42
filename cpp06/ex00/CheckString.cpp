@@ -11,23 +11,6 @@
 /* ************************************************************************** */
 
 #include "CheckString.hpp"
-/*
-CheckString::CheckString(){}
-
-CheckString::CheckString(const CheckString &obj) {
-
-	this->operator=(obj);
-}
-
-CheckString	&CheckString::operator=(const CheckString &obj) {
-
-	if (this != &obj)
-		return (*this);
-	return (*this);
-}
-
-CheckString::~CheckString() {}
-*/
 
 int	dotFound(const std::string &str) {
 
@@ -54,13 +37,11 @@ int	floatFound(const std::string &str) {
 		return (0);
 	return (found);
 }
-/*
+
 int	isValid(const std::string &str) {
 
-	if ()
-}
-*/
 
+}
 
 int	isChar(const std::string &str) {
 

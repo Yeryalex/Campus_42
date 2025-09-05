@@ -16,23 +16,8 @@
 #include <iostream>
 #include <string>
 
-/*
-class CheckString {
-
-	public:
-		CheckString();
-		CheckString(const CheckString &obj);
-		CheckString &operator=(const CheckString &obj);
-		~CheckString();
-
-	 	static	int	dotFound(const std::string &str);
-	 	static	int	floatFound(const std::string &str);
-		static	int	isChar(const std::string &str);
-};
-*/
-
 int		dotFound(const std::string &str);
 int		floatFound(const std::string &str);
-int		isChar(const std::string &str);
+int		isAllAlpha(const std::string &str);
 
 #endif

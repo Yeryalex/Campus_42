@@ -30,12 +30,10 @@ ScalarConverter::~ScalarConverter() {}
 
 void	ScalarConverter::convert(const std::string &str) {
 
-	std::cout << str << std::endl;
-	std::cout << dotFound(str) << " dot" << std::endl;
-	std::cout << floatFound(str) << " float" << std::endl;
-	
 	if (!dotFound(str) && !floatFound(str))
 	{
-		std::cout << static_cast<char>(atoi(str.c_str())) << std::endl;
+
+		std::cout << "nothing" << std::endl;
+	//	std::cout << static_cast<char>(atoi(str.c_str())) << std::endl;
 	}
 }
