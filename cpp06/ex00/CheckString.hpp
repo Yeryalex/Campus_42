@@ -13,11 +13,22 @@
 #ifndef CHECKSTRING_HPP
 # define	CHECKSTRING_HPP
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
+
+enum e_type {
+	NONE,
+	CHAR,
+	INT,
+	FLOAT
+};
 
 int		dotFound(const std::string &str);
 int		floatFound(const std::string &str);
 int		isAllAlpha(const std::string &str);
+int		isAllDigit(const std::string &str);
+e_type	detectType(const std::string &str);
+int		convertToInt(const std::string &str);
 
 #endif

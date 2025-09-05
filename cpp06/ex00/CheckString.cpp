@@ -38,13 +38,42 @@ int	floatFound(const std::string &str) {
 	return (found);
 }
 
-int	isValid(const std::string &str) {
+int	isAllAlpha(const std::string &str) { 
 
-
+	for (unsigned int i = 0; i < str.length(); i++) {
+	
+		if (isalpha(str[i]) )
+			return (1);
+	}
+	return (0);
 }
 
-int	isChar(const std::string &str) {
+int	isAllDigit(const std::string &str) {
+	
+	unsigned int	alldigits = 0;
 
-	(void)str;
-	return (true);
+	for (unsigned int i = 0; i < str.length(); i++) {
+	
+		if (std::isdigit(str[i]))
+			alldigits++;		
+	}
+	if (str.length() == alldigits)
+		return (1);
+	return (0);
 }
+
+e_type	detectType(const std::string &str) {
+
+	if (!dotFound(str) && !floatFound(str) && isAllDigit(str))
+	{
+		return (INT);
+	}
+	return (NONE);
+}
+
+int	convertToInt(const std::string &str) {
+
+	int value = atoi(str.c_str());
+	return (value);
+}
+

@@ -30,10 +30,10 @@ ScalarConverter::~ScalarConverter() {}
 
 void	ScalarConverter::convert(const std::string &str) {
 
-	if (!dotFound(str) && !floatFound(str))
-	{
-
-		std::cout << "nothing" << std::endl;
-	//	std::cout << static_cast<char>(atoi(str.c_str())) << std::endl;
+	int type = detectType(str);
+	
+	if (type == INT) {
+		int value = convertToInt(str);
+		std::cout << "int: " << value << std::endl;
 	}
 }
