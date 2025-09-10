@@ -147,21 +147,37 @@ int	convertToFloat(const std::string &str) {
 	}
 	return (value);
 }
-/*
-int	convertToFloat(const std::string &str) {
 
-	float value = atof(str.c_str());
-	
-	std::cout << "char: " << static_cast<char>(value) << std::endl;
-	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	if (value == (int)value) {
-		std::cout << "float: " << value << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
+void printLimits(std::string limit, int a) {
+
+	if (a == 1) {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << limit << "f" << std::endl;
+		std::cout << "double: " << limit << std::endl;
 	}
 	else {
-		std::cout << "float: " << value  <<  "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << limit  << std::endl;
+		std::cout << "double: " << limit.substr(0, 3) << std::endl;
 	}
-	
-	return (value);
-}*/
+}
+
+void	checkLimits(const std::string &str) {
+
+	std::string limits[6] = {"nan", "-inf", "+inf", "nanf", "-inff", "+inff"};
+
+	for (int i = 0; i < 3; i++) {
+		if (str == limits[i]) {
+			printLimits(limits[i], 1);
+			return ;
+		}
+	}
+	for (int i = 3; i < 6; i++) {
+		if (str == limits[i]) {
+			printLimits(limits[i], 2);
+			return ;
+		}
+	}
+}

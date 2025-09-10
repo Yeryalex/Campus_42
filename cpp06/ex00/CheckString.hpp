@@ -37,5 +37,7 @@ bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
 bool	isFloat(const std::string &str);
 void	charDisplay(int value);
+void	checkLimits(const std::string &str);
+void	printLimits(std::string limit);
 
 #endif

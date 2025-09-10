@@ -28,8 +28,9 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &obj) {
 
 ScalarConverter::~ScalarConverter() {}
 
-void	ScalarConverter::convert(const std::string &str) {
+void ScalarConverter::convert(const std::string &str) {
 
+	checkLimits(str);
 	int type = detectType(str);
 	
 	if (type == INT)
