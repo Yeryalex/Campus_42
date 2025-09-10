@@ -18,7 +18,7 @@ CFILES = main.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
-NAME = cast
+NAME = convert
 
 all: $(NAME)
 

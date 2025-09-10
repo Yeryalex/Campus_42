@@ -54,13 +54,14 @@ int	isAllDigit(const std::string &str) {
 
 	for (unsigned int i = 0; i < str.length(); i++) {
 	
-		if (std::isdigit(str[i]))
+		if (std::isdigit(str[i]) || str[i] == '-' || str[i] == '+')
 			alldigits++;		
 	}
 	if (str.length() == alldigits)
 		return (1);
 	return (0);
 }
+
 
 bool	isInt(const std::string &str) {
 
@@ -88,11 +89,20 @@ e_type	detectType(const std::string &str) {
 	return (NONE);
 }
 
+void charDisplay(int value) {
+
+	if (std::isprint(value))
+		std::cout << "char: '" << static_cast<char>(value) << "'"<< std::endl;
+	else if (std::iscntrl(value))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+}
 int	convertToInt(const std::string &str) {
 
 	int value = atoi(str.c_str());
-	std::cout << sizeof(value) << std::endl;
-	std::cout << "char: " << static_cast<char>(value) << std::endl;
+
+	charDisplay(value);
 	std::cout << "int: " << value << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
@@ -103,15 +113,16 @@ int	convertToInt(const std::string &str) {
 int	convertToDouble(const std::string &str) {
 
 	double value = atof(str.c_str());
-	std::cout << sizeof(value) << std::endl;
-
-	std::cout << "char: " << static_cast<char>(value) << std::endl;
-	std::cout << "int: " << static_cast<int>(value) << std::endl;
+	
 	if (value == (int)value) {
+		charDisplay((int)value);
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
 		std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
 		std::cout << "double: " << value  << ".0" << std::endl;
 	}
 	else {
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
 		std::cout << "float: " << static_cast<float>(value)  <<  "f" << std::endl;
 		std::cout << "double: " << value <<  std::endl;
 	}
@@ -121,7 +132,25 @@ int	convertToDouble(const std::string &str) {
 int	convertToFloat(const std::string &str) {
 
 	float value = atof(str.c_str());
-	std::cout << sizeof(value) << std::endl;
+	
+	if (value == (int)value) {
+		charDisplay((int)value);
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+		std::cout << "float: " << value << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
+	}
+	else {
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: " << static_cast<int>(value) << std::endl;
+		std::cout << "float: " << value << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+	}
+	return (value);
+}
+/*
+int	convertToFloat(const std::string &str) {
+
+	float value = atof(str.c_str());
 	
 	std::cout << "char: " << static_cast<char>(value) << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
@@ -135,4 +164,4 @@ int	convertToFloat(const std::string &str) {
 	}
 	
 	return (value);
-}
+}*/

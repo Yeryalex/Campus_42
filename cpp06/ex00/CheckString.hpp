@@ -36,5 +36,6 @@ int		convertToFloat(const std::string &str);
 bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
 bool	isFloat(const std::string &str);
+void	charDisplay(int value);
 
 #endif
