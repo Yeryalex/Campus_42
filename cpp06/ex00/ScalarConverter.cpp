@@ -32,8 +32,8 @@ void	ScalarConverter::convert(const std::string &str) {
 
 	int type = detectType(str);
 	
-	if (type == INT) {
-		int value = convertToInt(str);
-		std::cout << "int: " << value << std::endl;
-	}
+	if (type == INT)
+		convertToInt(str);
+	if (type == DOUBLE)
+		convertToDouble(str);
 }

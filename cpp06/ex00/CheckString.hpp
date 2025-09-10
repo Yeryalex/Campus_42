@@ -21,7 +21,8 @@ enum e_type {
 	NONE,
 	CHAR,
 	INT,
-	FLOAT
+	FLOAT,
+	DOUBLE
 };
 
 int		dotFound(const std::string &str);
@@ -30,5 +31,8 @@ int		isAllAlpha(const std::string &str);
 int		isAllDigit(const std::string &str);
 e_type	detectType(const std::string &str);
 int		convertToInt(const std::string &str);
+int		convertToDouble(const std::string &str);
+bool	isInt(const std::string &str);
+bool	isDouble(const std::string &str);
 
 #endif
