@@ -32,7 +32,9 @@ int		isAllDigit(const std::string &str);
 e_type	detectType(const std::string &str);
 int		convertToInt(const std::string &str);
 int		convertToDouble(const std::string &str);
+int		convertToFloat(const std::string &str);
 bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
+bool	isFloat(const std::string &str);
 
 #endif

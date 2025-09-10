@@ -34,6 +34,8 @@ void	ScalarConverter::convert(const std::string &str) {
 	
 	if (type == INT)
 		convertToInt(str);
+	if (type == FLOAT)
+		convertToFloat(str);
 	if (type == DOUBLE)
 		convertToDouble(str);
 }

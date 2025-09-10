@@ -15,7 +15,7 @@
 int	dotFound(const std::string &str) {
 
 	int found = 0;
-	
+
 	for (unsigned int i = 0; i < str.length(); i++) {
 		if (str[i] == '.')
 			found++;
@@ -72,10 +72,17 @@ bool	isDouble(const std::string &str) {
 	return (dotFound(str) && !floatFound(str));
 }
 
+bool	isFloat(const std::string &str) {
+
+	return (dotFound(str) && floatFound(str));
+}
+
 e_type	detectType(const std::string &str) {
 
 	if (isInt(str))
 		return (INT);
+	if (isFloat(str))
+		return (FLOAT);
 	if (isDouble(str))
 		return (DOUBLE);
 	return (NONE);
@@ -84,7 +91,7 @@ e_type	detectType(const std::string &str) {
 int	convertToInt(const std::string &str) {
 
 	int value = atoi(str.c_str());
-
+	std::cout << sizeof(value) << std::endl;
 	std::cout << "char: " << static_cast<char>(value) << std::endl;
 	std::cout << "int: " << value << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
@@ -96,11 +103,36 @@ int	convertToInt(const std::string &str) {
 int	convertToDouble(const std::string &str) {
 
 	double value = atof(str.c_str());
+	std::cout << sizeof(value) << std::endl;
+
+	std::cout << "char: " << static_cast<char>(value) << std::endl;
+	std::cout << "int: " << static_cast<int>(value) << std::endl;
+	if (value == (int)value) {
+		std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
+		std::cout << "double: " << value  << ".0" << std::endl;
+	}
+	else {
+		std::cout << "float: " << static_cast<float>(value)  <<  "f" << std::endl;
+		std::cout << "double: " << value <<  std::endl;
+	}
+	return (value);
+}
+
+int	convertToFloat(const std::string &str) {
+
+	float value = atof(str.c_str());
+	std::cout << sizeof(value) << std::endl;
 	
 	std::cout << "char: " << static_cast<char>(value) << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
-	std::cout << "double: " << value <<  std::endl;
-
+	if (value == (int)value) {
+		std::cout << "float: " << value << ".0f" << std::endl;
+		std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
+	}
+	else {
+		std::cout << "float: " << value  <<  "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+	}
+	
 	return (value);
 }
