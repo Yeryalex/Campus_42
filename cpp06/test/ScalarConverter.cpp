@@ -36,16 +36,16 @@ void ScalarConverter::convert(const std::string &str) {
 	switch (type)
 	{
 		case CHAR:
-			isChar(str);
+			convertToChar(str);
 			break;
 		case INT:
-			//convertToInt(str);
+			convertToInt(str);
 			break ;
 		case FLOAT:
-			//convertToFloat(str);
+			convertToFloat(str);
 			break ;
 		case DOUBLE:
-			//convertToDouble(str);
+			convertToDouble(str);
 			break ;
 		case NONE:
 			break ;

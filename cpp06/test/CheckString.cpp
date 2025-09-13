@@ -65,29 +65,24 @@ int	isAllDigit(const std::string &str) {
 bool	isChar(const std::string &str) {
 
 	int value = atoi(str.c_str());
-	if (value >= 0 && value <= 127)
-	{
-		if (std::isprint(value))
-			std::cout << "char: " << value << std::endl;
-		else if (std::iscntrl(value))
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-	}
+	if (value >= 0 && value <= 127 && !dotFound(str) && !floatFound(str))
+		return (1);
+	return (0);
 }
 
-bool	convertToChar(const std::string &str) {
+void	convertToChar(const std::string &str) {
 
 	int value = atoi(str.c_str());
-	if (value >= 0 && value <= 127)
-	{
-		if (std::isprint(value))
-			std::cout << "char: " << value << std::endl;
-		else if (std::iscntrl(value))
-			std::cout << "char: Non displayable" << std::endl;
-		else
-			std::cout << "char: impossible" << std::endl;
-	}
+
+	if (std::isprint(value))
+		std::cout << "char: " << static_cast<char>(value) << std::endl;
+	else if (std::iscntrl(value))
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
+	std::cout << "int: " << static_cast<int>(value) << std::endl;
+	std::cout << "float: " << static_cast<float>(value) << ".0f" <<std::endl;
+	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
 }
 
 bool	isInt(const std::string &str) {
@@ -107,6 +102,8 @@ bool	isFloat(const std::string &str) {
 
 e_type	detectType(const std::string &str) {
 
+	if (isChar(str))
+		return (CHAR);
 	if (isInt(str))
 		return (INT);
 	if (isFloat(str))
@@ -128,8 +125,8 @@ void charDisplay(int value) {
 int	convertToInt(const std::string &str) {
 
 	int value = atoi(str.c_str());
-
-	charDisplay(value);
+	
+	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: " << value << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
