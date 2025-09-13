@@ -35,6 +35,9 @@ void ScalarConverter::convert(const std::string &str) {
 
 	switch (type)
 	{
+		case CHAR:
+			convertToChar(str);
+			break;
 		case INT:
 			convertToInt(str);
 			break ;
@@ -46,15 +49,5 @@ void ScalarConverter::convert(const std::string &str) {
 			break ;
 		case NONE:
 			break ;
-		case CHAR:
-			break ;
 	}
-/*	
-	if (type == INT)
-		convertToInt(str);
-	if (type == FLOAT)
-		convertToFloat(str);
-	if (type == DOUBLE)
-		convertToDouble(str);
-*/
 }
