@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/08/18 11:39:32 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:14:13 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		floatFound(const std::string &str);
 int		isAllAlpha(const std::string &str);
 int		isAllDigit(const std::string &str);
 e_type	detectType(const std::string &str);
-void		convertToChar(const std::string &str);
+void	convertToChar(const std::string &str);
 int		convertToInt(const std::string &str);
 int		convertToDouble(const std::string &str);
 int		convertToFloat(const std::string &str);
@@ -39,7 +39,7 @@ bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
 bool	isFloat(const std::string &str);
 void	charDisplay(int value);
-void	checkLimits(const std::string &str);
+int		checkLimits(const std::string &str);
 void	printLimits(std::string limit);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/08/18 11:32:04 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:49:48 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,8 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
-/*
-enum e_type {
-	NONE,
-	CHAR,
-	INT,
-	FLOAT
-};
-*/
+
+
 class ScalarConverter {
 
 	public:

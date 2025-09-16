@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:55 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/07/29 15:45:36 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/16 15:49:28 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <typeinfo>
 
-int main(int argc, char **argv) {
+int	main(int argc, char **argv) {
 
 	if (argc != 2)
 		return (std::cout << "Pass only one argument.\n", 1);

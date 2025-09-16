@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/08/18 11:53:01 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/16 16:16:59 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ int	isAllDigit(const std::string &str) {
 	return (0);
 }
 
+bool	isNone(const std::string &str) {
+	
+	if (!checkLimits(str) && isAllAlpha(str))
+		return (1);
+	return (0);
+}
+
 bool	isChar(const std::string &str) {
 
 	int value = atoi(str.c_str());
@@ -73,7 +80,7 @@ bool	isChar(const std::string &str) {
 void	convertToChar(const std::string &str) {
 
 	int value = atoi(str.c_str());
-
+	std::cout << value << " test\n";
 	if (std::isprint(value))
 		std::cout << "char: " << static_cast<char>(value) << std::endl;
 	else if (std::iscntrl(value))
@@ -102,6 +109,8 @@ bool	isFloat(const std::string &str) {
 
 e_type	detectType(const std::string &str) {
 
+	if (isNone(str))
+		return (NONE);
 	if (isChar(str))
 		return (CHAR);
 	if (isInt(str))
@@ -125,7 +134,7 @@ void charDisplay(int value) {
 int	convertToInt(const std::string &str) {
 
 	int value = atoi(str.c_str());
-	
+
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: " << value << std::endl;
 	std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
@@ -156,7 +165,6 @@ int	convertToDouble(const std::string &str) {
 int	convertToFloat(const std::string &str) {
 
 	float value = atof(str.c_str());
-	
 	if (value == (int)value) {
 		charDisplay((int)value);
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
@@ -188,20 +196,21 @@ void printLimits(std::string limit, int a) {
 	}
 }
 
-void	checkLimits(const std::string &str) {
+int	checkLimits(const std::string &str) {
 
 	std::string limits[6] = {"nan", "-inf", "+inf", "nanf", "-inff", "+inff"};
 
 	for (int i = 0; i < 3; i++) {
 		if (str == limits[i]) {
 			printLimits(limits[i], 1);
-			return ;
+			return (1);
 		}
 	}
 	for (int i = 3; i < 6; i++) {
 		if (str == limits[i]) {
 			printLimits(limits[i], 2);
-			return ;
+			return (1);
 		}
 	}
+	return (0);
 }
