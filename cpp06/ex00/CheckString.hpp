@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/16 16:14:13 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/17 11:04:13 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <limits>
+
+#define MAX_INT		std::numeric_limits<int>::max()
+#define MIN_INT		std::numeric_limits<int>::min()
+#define MAX_FLOAT	std::numeric_limits<float>::max()
+#define MIN_FLOAT	std::numeric_limits<float>::min()
+#define MAX_DOUBLE	std::numeric_limits<double>::max()
+#define MIN_DOUBLE	std::numeric_limits<double>::min()
 
 enum e_type {
 	NONE,
@@ -38,8 +46,9 @@ bool	isChar(const std::string &str);
 bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
 bool	isFloat(const std::string &str);
-void	charDisplay(int value);
+void	charDisplay(long value);
 int		checkLimits(const std::string &str);
-void	printLimits(std::string limit);
+void	printLimits(std::string limit, int a);
+void	printError(void);
 
 #endif
