@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/17 11:27:39 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/17 12:37:07 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int	isAllDigit(const std::string &str) {
 
 bool	isChar(const std::string &str) {
 
-	int value = atoi(str.c_str());
+	char *endptr;
+	double	 value = std::strtod(str.c_str(), &endptr);
 	if (value >= 0 && value <= 127)
 		return (1);
 	return (0);
@@ -73,7 +74,6 @@ bool	isChar(const std::string &str) {
 void	convertToChar(const std::string &str) {
 
 	int value = atoi(str.c_str());
-
 	if (std::isprint(value))
 		std::cout << "char: '" << static_cast<char>(value) << "'"<< std::endl;
 	else if (std::iscntrl(value))
@@ -97,11 +97,9 @@ bool	isDouble(const std::string &str) {
 	
 	char	*endptr;
 	double	value = std::strtod(str.c_str(), &endptr);
-
 	if (value > MAX_DOUBLE || value < MIN_DOUBLE)
 		return (0);
-
-	return (dotFound(str) && !floatFound(str));
+	return ((dotFound(str) && !floatFound(str)) || isAllDigit(str));
 }
 
 bool	isFloat(const std::string &str) {
@@ -150,18 +148,20 @@ int	convertToInt(const std::string &str) {
 
 int	convertToDouble(const std::string &str) {
 
-	double value = atof(str.c_str());
+	char *endptr;
+	double value = strtod(str.c_str(), &endptr);
 	
-	if (value == (long)value) {
-		charDisplay((long)value);
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
+	if (value < MAX_FLOAT && value > MIN_FLOAT) {
+		
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
 		std::cout << "float: " << static_cast<float>(value) << ".0f" << std::endl;
 		std::cout << "double: " << value  << ".0" << std::endl;
 	}
 	else {
 		std::cout << "char: Impossible" << std::endl;
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
-		std::cout << "float: " << static_cast<float>(value)  <<  "f" << std::endl;
+		std::cout << "int: Impossble" << std::endl;
+		std::cout << "float: Impossible" << std::endl;
 		std::cout << "double: " << value <<  std::endl;
 	}
 	return (value);
@@ -170,16 +170,17 @@ int	convertToDouble(const std::string &str) {
 int	convertToFloat(const std::string &str) {
 
 	float value = atof(str.c_str());
-//	std::cout << value << std::endl;
-	if (value == (int)value) {
-		charDisplay((int)value);
+	if (value < MAX_INT && value > MIN_INT) {
+		
+		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
 		std::cout << "float: " << value << ".0f" << std::endl;
 		std::cout << "double: " << static_cast<double>(value) << ".0" << std::endl;
+		
 	}
 	else {
 		std::cout << "char: Impossible" << std::endl;
-		std::cout << "int: " << static_cast<int>(value) << std::endl;
+		std::cout << "int: Impossible" << std::endl;
 		std::cout << "float: " << value << "f" << std::endl;
 		std::cout << "double: " << static_cast<double>(value) <<  std::endl;
 	}
