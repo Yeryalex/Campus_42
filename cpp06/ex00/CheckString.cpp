@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/17 11:22:42 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/17 11:27:39 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ bool	isDouble(const std::string &str) {
 	char	*endptr;
 	double	value = std::strtod(str.c_str(), &endptr);
 
-	if (endptr != '\0' || value > MAX_DOUBLE || value < MIN_DOUBLE)
+	if (value > MAX_DOUBLE || value < MIN_DOUBLE)
 		return (0);
 
 	return (dotFound(str) && !floatFound(str));
@@ -108,7 +108,8 @@ bool	isFloat(const std::string &str) {
 
 	char	*endptr;	
 	double	value = std::strtod(str.c_str(), &endptr);	
-	if (endptr != '\0' || value > MAX_FLOAT || value < MIN_FLOAT)
+
+	if (value > MAX_FLOAT || value < MIN_FLOAT)
 		return (0);
 	return ((dotFound(str) && floatFound(str)) || isAllDigit(str));
 }
@@ -169,7 +170,7 @@ int	convertToDouble(const std::string &str) {
 int	convertToFloat(const std::string &str) {
 
 	float value = atof(str.c_str());
-	std::cout << value << std::endl;
+//	std::cout << value << std::endl;
 	if (value == (int)value) {
 		charDisplay((int)value);
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
