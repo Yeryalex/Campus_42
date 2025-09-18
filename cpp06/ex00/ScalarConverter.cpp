@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/17 10:49:02 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:31:22 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string &str) {
 
+	if (repeatedChar(str))
+	{
+		printError();
+		return ;
+	}
 	if (checkLimits(str))
 	{
 		printLimits(str, checkLimits(str));

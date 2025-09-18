@@ -6,11 +6,12 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/18 11:45:21 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/18 12:29:14 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "CheckString.hpp"
+
 
 int countDigits(const std::string &str) {
 
@@ -26,6 +27,26 @@ int countDigits(const std::string &str) {
 	if (decimals == 0)
 		decimals++;
 	return (decimals);
+}
+
+int	repeatedChar(const std::string &str) {
+
+	if (str[0] != '-' || str[0] != '+') {
+	
+		for (unsigned int i = 1; i < str.length(); i++) {
+	
+			if (str[i] == '-' || str[i] == '+')
+				return (1);
+		}
+		return (0);
+	}
+
+	for (unsigned int i = 0; i < str.length(); i++) {
+	
+		if (str[i] == '-' || str[i] == '+')
+			return (1);
+	}
+	return (0);
 }
 
 int	dotFound(const std::string &str) {
@@ -67,10 +88,13 @@ int	isAllAlpha(const std::string &str) {
 int	isAllDigit(const std::string &str) {
 	
 	unsigned int	alldigits = 0;
+	unsigned int	i = 0;
 
-	for (unsigned int i = 0; i < str.length(); i++) {
-	
-		if (std::isdigit(str[i]) || str[i] == '-' || str[i] == '+')
+	if (str[0] == '-' || str[0] == '+')
+	{	i++; alldigits++;}
+	for (; i < str.length(); i++) {
+		
+		if (std::isdigit(str[i]) /*|| str[i] == '-' || str[i] == '+'*/)
 			alldigits++;		
 	}
 	if (str.length() == alldigits)
@@ -193,10 +217,20 @@ int	convertToDouble(const std::string &str) {
 		std::cout << "double: " << value << std::endl;
 	}
 	else {
+		
+		if (dotFound(str)) {
 		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: Impossble" << std::endl;
 		std::cout << "float: Impossible" << std::endl;
 		std::cout << "double: " << std::fixed << std::setprecision(digits) << value <<  std::endl;
+	
+		}
+		else {
+		std::cout << "char: Impossible" << std::endl;
+		std::cout << "int: Impossble" << std::endl;
+		std::cout << "float: Impossible" << std::endl;
+		std::cout << "double: " << std::fixed << std::setprecision(1) << value <<  std::endl;	
+		}
 	}
 	return (value);
 }
@@ -210,7 +244,7 @@ int	convertToFloat(const std::string &str) {
 	std::cout << value << "\n";
 	std::cout << "IT IS FLOAT: " << value << "\n";
 	
-	if (value < MAX_INT && value > MIN_INT) {
+	if (value <= MAX_INT && value >= MIN_INT) {
 		
 		charDisplay(value);
 		std::cout << "int: " << static_cast<int>(value) << std::endl;
@@ -221,8 +255,16 @@ int	convertToFloat(const std::string &str) {
 	else {
 		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: Impossible" << std::endl;
-		std::cout << "float: " << std::fixed <<  std::setprecision(digits) << value << "f" << std::endl;
-		std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+		if (dotFound(str))
+		{
+			std::cout << "float: " << std::fixed <<  std::setprecision(digits) << value << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+		}
+		else
+		{
+			std::cout << "float: " <<  std::fixed << std::setprecision(1) << value << "f" << std::endl;
+			std::cout << "double: " << static_cast<double>(value) <<  std::endl;
+		}
 	}
 
 	return (value);
