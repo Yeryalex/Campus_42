@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/17 12:31:04 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/18 10:37:01 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <iomanip>
 
 #define MAX_INT		std::numeric_limits<int>::max()
 #define MIN_INT		std::numeric_limits<int>::min()
@@ -50,5 +51,6 @@ void	charDisplay(long value);
 int		checkLimits(const std::string &str);
 void	printLimits(std::string limit, int a);
 void	printError(void);
+int		countDigits(const std::string &str);
 
 #endif
