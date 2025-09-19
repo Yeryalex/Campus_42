@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/26 15:17:07 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/07/29 15:56:00 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/09/19 09:31:47 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 CFILES = main.cpp \
 		 ScalarConverter.cpp \
 		 CheckString.cpp \
+		 CheckType.cpp \
+		 ConversionString.cpp \
+		 PseudoLiterals.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
