@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/18 12:28:41 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/19 08:48:01 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	printLimits(std::string limit, int a);
 void	printError(void);
 int		countDigits(const std::string &str);
 int		repeatedChar(const std::string &str);
+int		extraChars(const std::string &str);
 
 #endif

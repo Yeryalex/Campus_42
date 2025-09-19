@@ -6,11 +6,37 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/18 12:29:14 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/19 09:02:20 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "CheckString.hpp"
+
+int	extraCharsDouble(const std::string &str) {
+
+	for (unsigned int i = 0; i < str.length(); i++) {
+	
+		if (!isdigit(str[i]) && str[i] != '.')
+		{
+			std::cout << str[i] << std::endl;
+			return (1);
+		}
+	}
+	return (0);
+}
+
+int	extraCharsFloat(const std::string &str) {
+
+	for (unsigned int i = 0; i < str.length(); i++) {
+	
+		if (!isdigit(str[i]) && str[i] != '.' && str[i] != 'f')
+		{
+			std::cout << str[i] << std::endl;
+			return (1);
+		}
+	}
+	return (0);
+}
 
 
 int countDigits(const std::string &str) {
@@ -140,7 +166,7 @@ bool	isDouble(const std::string &str) {
 	double	value = std::strtod(str.c_str(), &endptr);
 	if (value > MAX_DOUBLE || value < MIN_DOUBLE)
 		return (0);
-	return ((dotFound(str) && !floatFound(str)) || isAllDigit(str));
+	return ((dotFound(str) && !floatFound(str) && !extraCharsDouble(str)) || isAllDigit(str));
 }
 
 bool	isFloat(const std::string &str) {
@@ -150,7 +176,7 @@ bool	isFloat(const std::string &str) {
 
 	if (value > MAX_FLOAT || value < MIN_FLOAT)
 		return (0);
-	return ((dotFound(str) && floatFound(str)) || isAllDigit(str));
+	return ((dotFound(str) && floatFound(str) && !extraCharsFloat(str)) || isAllDigit(str));
 }
 
 e_type	detectType(const std::string &str) {
@@ -252,7 +278,7 @@ int	convertToFloat(const std::string &str) {
 		std::cout << "double: " << std::fixed << std::setprecision(digits) << value << std::endl;
 		
 	}
-	else {
+	else if (value >= MIN_FLOAT && value <= MAX_FLOAT) {
 		std::cout << "char: Impossible" << std::endl;
 		std::cout << "int: Impossible" << std::endl;
 		if (dotFound(str))
@@ -266,7 +292,7 @@ int	convertToFloat(const std::string &str) {
 			std::cout << "double: " << static_cast<double>(value) <<  std::endl;
 		}
 	}
-
+	
 	return (value);
 }
 
