@@ -6,13 +6,13 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 09:30:06 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/19 09:32:30 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:14:23 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "CheckString.hpp"
 
-void    printError(void) {
+void	printError(void) {
 
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
@@ -20,7 +20,7 @@ void    printError(void) {
         std::cout << "double: impossible" << std::endl;
 }
 
-void printLimits(std::string limit, int a) {
+void	printLiterals(std::string limit, int a) {
 
     if (a == 1) {
         std::cout << "char: impossible" << std::endl;
@@ -36,7 +36,7 @@ void printLimits(std::string limit, int a) {
     }
 }
 
-int checkLimits(const std::string &str) {
+int	checkLiterals(const std::string &str) {
 
     std::string limits[6] = {"nan", "-inf", "+inf", "nanf", "-inff", "+inff"};
 
@@ -53,7 +53,7 @@ int checkLimits(const std::string &str) {
     return (0);
 }
 
-int extraCharsDouble(const std::string &str) {
+int	extraCharsDouble(const std::string &str) {
 
     for (unsigned int i = 0; i < str.length(); i++) {
 
@@ -66,7 +66,7 @@ int extraCharsDouble(const std::string &str) {
     return (0);
 }
 
-int extraCharsFloat(const std::string &str) {
+int	extraCharsFloat(const std::string &str) {
 
     for (unsigned int i = 0; i < str.length(); i++) {
 
@@ -79,4 +79,3 @@ int extraCharsFloat(const std::string &str) {
     }
     return (0);
 }
-

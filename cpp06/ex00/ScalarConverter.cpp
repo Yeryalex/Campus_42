@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:12:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/18 12:31:22 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:13:49 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ ScalarConverter	&ScalarConverter::operator=(const ScalarConverter &obj) {
 
 ScalarConverter::~ScalarConverter() {}
 
-void ScalarConverter::convert(const std::string &str) {
+void	ScalarConverter::convert(const std::string &str) {
 
-	if (repeatedChar(str))
+	if (repeatedSign(str))
 	{
 		printError();
 		return ;
 	}
-	if (checkLimits(str))
+	if (checkLiterals(str))
 	{
-		printLimits(str, checkLimits(str));
+		printLiterals(str, checkLiterals(str));
 		return ;
 	}
 	e_type type = detectType(str);

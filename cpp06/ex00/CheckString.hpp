@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 14:10:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/19 09:04:32 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/19 10:14:49 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,19 @@ int		isAllAlpha(const std::string &str);
 int		isAllDigit(const std::string &str);
 e_type	detectType(const std::string &str);
 void	convertToChar(const std::string &str);
-int		convertToInt(const std::string &str);
-int		convertToDouble(const std::string &str);
-int		convertToFloat(const std::string &str);
+void	convertToInt(const std::string &str);
+void	convertToDouble(const std::string &str);
+void	convertToFloat(const std::string &str);
 bool	isChar(const std::string &str);
 bool	isInt(const std::string &str);
 bool	isDouble(const std::string &str);
 bool	isFloat(const std::string &str);
 void	charDisplay(long value);
-int		checkLimits(const std::string &str);
-void	printLimits(std::string limit, int a);
+int		checkLiterals(const std::string &str);
+void	printLiterals(std::string limit, int a);
 void	printError(void);
 int		countDigits(const std::string &str);
-int		repeatedChar(const std::string &str);
+int		repeatedSign(const std::string &str);
 int		extraCharsFloat(const std::string &str);
 int		extraCharsDouble(const std::string &str);
 
