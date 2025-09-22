@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 10:24:41 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/22 12:14:42 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:40:37 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class Base {
 		virtual ~Base();
 };
 
-class Error: public Base {};
+class A: public Base {};
+class B: public Base {};
+class C: public Base {};
 
 #endif
