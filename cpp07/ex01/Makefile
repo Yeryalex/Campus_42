@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/22 14:27:35 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/09/23 10:08:16 by yrodrigu         ###   ########.fr        #
+#    Created: 2025/09/23 10:00:19 by yrodrigu          #+#    #+#              #
+#    Updated: 2025/09/23 10:09:37 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,20 @@ CFILES = main.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
-NAME = swap
+NAME = iter
 
-all: $(NAME)
+all = $(NAME)
 
 $(NAME): $(OFILES)
-		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
+	$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile whatever.hpp
+%.o: %.cpp Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean: 
 	rm -f $(OFILES)
-
 fclean: clean
 	rm -f $(NAME)
-
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean 
