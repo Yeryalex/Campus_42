@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/22 14:27:35 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/09/22 14:37:28 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/09/23 08:04:08 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 		$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile
+%.o: %.cpp Makefile whatever.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
