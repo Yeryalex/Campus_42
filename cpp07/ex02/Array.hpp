@@ -15,4 +15,18 @@
 
 #include <iostream>
 
+template	<typename T>
+class Array {
+
+	private:
+	T	*arr;
+	public:
+		Array() {
+		   arr = new T(0);
+		};
+		void	print(void) { 
+			std::cout << *arr << std::endl;
+		}
+};
+
 #endif

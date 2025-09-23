@@ -23,7 +23,7 @@ all: $(NAME)
 $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile
+%.o: %.cpp Makefile Array.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
