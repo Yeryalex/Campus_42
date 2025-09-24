@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:59:19 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/24 09:54:38 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/24 11:43:15 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,20 @@
 int main() {
 
 	Array<unsigned int> a;
-	Array<unsigned int>	test(5);
-	Array<int> c(-1);
+	const Array<unsigned int>	test(5);
 
-	a.print();
 	a = test;
+	int arr[1];
 
-	test.fillArr();
-	test.print();
+	arr[0] = test[0];
 
-	Array<unsigned int> b = test;	
-	a.print();
-	b.print();
-	
-	Array<unsigned int> x(test);
-
-	x.print();
-
+	std::cout << arr[0] << std::endl;
+	//test.fillArr();
+	try {
+		std::cout << test[1] << std::endl;	
+	}
+	catch (std::exception &e) {
+		std::cout << "Exception: " << e.what() << std::endl;
+	}
 	return (0);
 }
