@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:59:19 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/24 11:43:15 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/24 12:38:59 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,50 @@
 int main() {
 
 	Array<unsigned int> a;
-	const Array<unsigned int>	test(5);
+	Array<std::string> b(3);
+	Array<int> c(2);
 
-	a = test;
-	int arr[1];
+	a.fillArr(10);
+	a.printArray();
 
-	arr[0] = test[0];
+	b[0] = "hola ";
+	b[1] = "Mundo";
+	b[2] = "!";
+	b.printArray();
+	
+	c.fillArr(20);
+	c.printArray();
 
-	std::cout << arr[0] << std::endl;
-	//test.fillArr();
+	std::cout << "--- Copy assignment operator ---\n";
+	Array<std::string> d = b;
+	Array<std::string> e(d);
+
+	d.printArray(); 
+	std::cout << "--- Copy Constructor ---\n";
+	e.printArray();
+
+	std::cout << "--- Manage exceptions ---\n";
+	
+	Array<float>	exceptions(3);
 	try {
-		std::cout << test[1] << std::endl;	
+			exceptions[0];
+			exceptions[1];
+			exceptions[2];
+			exceptions[3];
 	}
-	catch (std::exception &e) {
-		std::cout << "Exception: " << e.what() << std::endl;
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
 	}
+	try {
+			exceptions[-1];
+	}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+
+	const Array<int> constant(5);
+
+	std::cout << constant[0] << ": This value was printed from a constant array\n";
+
 	return (0);
 }
