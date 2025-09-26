@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:49:46 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/26 12:30:08 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/26 12:37:31 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,15 @@ class Span {
 		Span	&operator=(const Span &obj);
 		~Span();
 
-		void	addNumber(int num);
-		void	addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
-		int		longestSpan();
-		int		shortestSpan();	
-		void	fillContainer();
-		
-		void	popBack() {
-			numbers.pop_back();
-		};
-		void	printSpan() {
-			
-			std::vector<int>::iterator it;
+		void				addNumber(int num);
+		void				addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		int					longestSpan();
+		int					shortestSpan();	
+		void				fillContainer();
+		void				popBack();
+		void				printSpan();
+		std::vector<int>	 &getContainer();
 
-			for (it = numbers.begin(); it != numbers.end(); it++)
-				std::cout << *it << std::endl;
-	
-	/*		for (int i = 0; i < (int)N; i++) {
-				std::cout << numbers[i] << std::endl;
-			}
-	*/	}
-
-		std::vector<int> &getContainer() {
-		
-			return (numbers);
-		}	
-	
 		class	outBoundsException: public std::exception {
 	
 			public:

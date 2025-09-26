@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:51:47 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/26 12:31:32 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/26 13:05:36 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	Span::addNumber(int num) {
 		throw outBoundsException();
 }
 
-
 void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
 
 	if (distance(begin, end) > N)
@@ -61,6 +60,7 @@ int	Span::shortestSpan() {
 
 	if (numbers.empty() || numbers.size() == 1)
 		throw impossibleComparisonException();
+	
 	int	diff = abs(*numbers.begin() - *(numbers.begin() + 1));
 	
 	for (int i = 0; i < (int)numbers.size(); i++) {
@@ -80,8 +80,25 @@ void	Span::fillContainer() {
 	srand(time(0));
 	
 	for (int i = 0; i < (int)N; i++) {
-		numbers.push_back(rand() % 1001);
+		numbers.push_back(rand() % 200001);
 	}
+}
+
+void    Span::popBack() {
+    numbers.pop_back();
+}
+
+void    Span::printSpan() {
+
+    std::vector<int>::iterator it;
+
+    for (it = numbers.begin(); it != numbers.end(); it++)
+        std::cout << *it << std::endl;
+}
+
+std::vector<int> &Span::getContainer() {
+
+    return (numbers);
 }
 
 const char	*Span::outBoundsException::what() const throw() {
