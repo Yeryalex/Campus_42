@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 08:51:47 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/26 13:05:36 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/27 09:23:23 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Span	&Span::operator=(const Span &obj) {
 	if (this != &obj)
 	{
 		this->N = obj.N;
+		this->numbers = obj.numbers;
 	}
 	return (*this);
 }
