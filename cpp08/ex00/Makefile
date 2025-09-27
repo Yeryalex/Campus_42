@@ -6,7 +6,7 @@
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/25 09:08:56 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/09/25 10:40:14 by yrodrigu         ###   ########.fr        #
+#    Updated: 2025/09/27 12:10:24 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFILES = main.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
-NAME = containers
+NAME = easyfind
 
 all: $(NAME)
 

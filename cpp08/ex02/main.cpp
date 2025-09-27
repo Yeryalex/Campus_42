@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 08:53:35 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/27 12:03:21 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/27 12:23:15 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,28 @@ void	listTest() {
  		std::cout << *it << std::endl;
  		++it;
  	}
+}
+
+void	extraTests() {
+
+	MutantStack<int> ms;
+
+	MutantStack<int>::iterator it = ms.begin();
+	MutantStack<int>::iterator ite = ms.end();
+
+	for (; it != ite; it++)
+    	std::cout << *it << std::endl;
+	ms.push(1);	
+	ms.push(2);	
+	ms.push(3);	
+	ms.push(4);	
+	ms.push(5);	
+	
+	it = ms.begin();
+	ite = ms.end();
+
+	for (; it != ite; it++)
+    	std::cout << *it << std::endl;
 }
 
 int main () {
@@ -87,6 +109,8 @@ int main () {
 	std::cout << "copy values subject: \n";
 	for (; its != ites; its++)
     	std::cout << *its << std::endl;
-
+	
+	std::cout << "--- EXTRA TESTS NO VALUES AND PUSH NEW VALUES ---\n";
+	extraTests();
 	return (0);
 }
