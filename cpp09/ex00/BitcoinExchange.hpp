@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:56:03 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/29 12:23:35 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/09/30 11:02:42 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,22 @@
 #include <cstdlib>
 #include <vector>
 #include <limits>
+#include <iomanip>
 
 #define	MAX_INT std::numeric_limits<int>::max()
 
 void	readFile(char	*filename);
-void	checkDate(std::string	line);
-void	checkFormat(std::string line);
+
+int		checkDate(std::string	line);
+void	checkFormat(std::string	line,
+		std::vector<std::string> &sDate,
+		std::vector<double> &sValue);
+
 int		checkTimeFormat(std::string date);
-int 	checkValue(std::string line);
+double 	checkValue(std::string line, std::vector<double> &sValue);
+int		pipePosition(std::string line);
+int		ft_validInt(std::string value);
+void	appendDate(std::string line,
+		std::vector<std::string> &sDate);
 
 #endif
