@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:55:24 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/01 09:26:51 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/01 10:30:14 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,38 @@ int	main(int argc, char **argv) {
 
 	readFile(argv[1]);
 /*
+	std::string	str = "2011-01-03,56";
+	std::istringstream ss(str);
+	std::string		date;
+	std::string		price;
+
+
+	std::getline(ss,date, ',');
+	std::getline(ss,price, ',');
+	std::cout << date << std::endl;
+	std::cout << price << std::endl;
+
+
+	std::string name;
+	
+	std::getline(std::cin, name);
+	
+	std::cout << name << std::endl;	
+
+	std::stringstream ss;	
+	std::string	str = "123.697f";
+
+	double	num;
+	double	value;
+	ss.str(str);
+
+	num = atof(str.c_str());
+	std::cout << num << std::endl;
+	
+	ss >> value;
+	std::cout << value << std::endl;
+
+
 	std::map<std::string, int> data;
 	std::map<std::string, int>::iterator it;
 
