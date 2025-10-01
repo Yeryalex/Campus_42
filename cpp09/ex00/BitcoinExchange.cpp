@@ -6,12 +6,76 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 15:03:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/30 11:46:15 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/01 09:28:44 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
+
+
+void	readFile(char	*filename) {
+
+	std::ifstream	readFile;
+	std::string	line;
+
+	readFile.open(filename);
+	while (std::getline(readFile, line))
+	{
+//		std::cout << line << std::endl;
+		checkLine(line);
+	}
+	readFile.close();
+}
+
+void	checkLine(std::string line) {
+	
+	std::map<std::string, double>	data;
+	std::string						date;
+
+	data.insert({getDate(line), getValue(line)});
+
+	std::cout << data.at(getDate(line)) << std::endl;
+}
+
+std::string	getDate(std::string line) {
+
+	std::string	date;
+
+	if (line.length() >= 10) {
+				
+		date = line.substr(0, 10);	
+		if (checkTimeFormat(date))
+			return (date);
+	}
+	else
+		return (date);
+	return (date);
+}
+
+
+double	getValue(std::string line) {
+
+	double		numValue;
+	std::string	value;
+
+	if (line.length() >= 13) {
+	
+		value = line.substr(13, line.length() - 1);
+		numValue = atof(value.c_str());
+		return (numValue);
+	}
+	return (-1);
+}
+
+
+
+
+
+
+
+
+/*
 void	printData(std::vector<std::string> sDate, std::vector<double> sValue) {
 
 	for (int i = 0; i < sDate.size(); i++) {
@@ -60,7 +124,7 @@ void	checkFormat(std::string	line, std::vector<std::string> &sDate, std::vector<
 	chValue = checkValue(line, sValue);
 	pipePos = pipePosition(line);
 }
-/*
+
 int	checkDate(std::string line)
 {
 	std::string	date;
@@ -75,7 +139,7 @@ int	checkDate(std::string line)
 		return (0);
 	return (-1);
 }
-*/
+
 void	appendDate(std::string line, std::vector<std::string> &sDate) {
 
 	std::string	date;
@@ -86,7 +150,7 @@ void	appendDate(std::string line, std::vector<std::string> &sDate) {
 		date = line.substr(0, line.length() -1);
 	sDate.push_back(date);
 }
-
+*/
 int	checkTimeFormat(std::string date) {
 
 	int year;
@@ -103,7 +167,7 @@ int	checkTimeFormat(std::string date) {
 		return (0);
 	return (1);
 }
-
+/*
 double	checkValue(std::string line, std::vector<double> &sValue) {
 	
 	std::string	value;
@@ -129,7 +193,7 @@ int	pipePosition(std::string line) {
 	pos = line.find(" | ");
 	return (pos);
 }
-/*
+
 int	ft_validInt(std::string value) {
 
 	int	sign = 0;

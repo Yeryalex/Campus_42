@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:56:03 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/30 11:02:42 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/01 09:12:36 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <vector>
 #include <limits>
 #include <iomanip>
+#include <map>
 
 #define	MAX_INT std::numeric_limits<int>::max()
 
@@ -37,5 +38,9 @@ int		pipePosition(std::string line);
 int		ft_validInt(std::string value);
 void	appendDate(std::string line,
 		std::vector<std::string> &sDate);
+
+void		checkLine(std::string line);
+std::string	getDate(std::string line);
+double			getValue(std::string line);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:55:24 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/09/29 10:05:46 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/01 09:26:51 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,22 @@ int	main(int argc, char **argv) {
 		return (std::cout << "Error: could not open file.\n", 1);
 
 	readFile(argv[1]);
+/*
+	std::map<std::string, int> data;
+	std::map<std::string, int>::iterator it;
 
-	return (0);
+
+	std::string str = std::string(); 
+	data.insert({str, 3});
+	data.insert({"str", 3});
+	
+	it = data.find(str);
+	if (it != data.end())
+	{
+		if (!it->first.empty())
+			std::cout << it->first << std::endl;
+	}	
+		//std::cout << data.at("") << std::endl;	
+	//std::cout << str.empty() << std::endl;	
+*/	return (0);
 }
