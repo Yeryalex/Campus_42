@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:56:03 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/01 11:14:59 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/01 12:02:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void		checkLine(std::string line, std::map<std::string, double> csvData);
 std::string	getDate(std::string line);
 double			getValue(std::string line);
 void		readData(std::map<std::string, double>	&csvData);
+int		isAllDigit(std::string str);
 
 #endif
