@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 15:03:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/01 12:07:53 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/02 09:36:29 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	checkLine(std::string line, std::map<std::string, double> csvData) {
 	date = getDate(line);
 	value = getValue(line);
 
-	if (date.empty()) {
+	if (date.empty() || value == - 1) {
 		std::cout << "Error: bad imput => "<< line  << std::endl;
 		return ;
 	}
@@ -79,7 +79,7 @@ void	readData(std::map<std::string, double>	&csvData) {
 		std::istringstream	priceStream(price);
 
 		priceStream >> priceValue;	
-		csvData[date] = priceValue;
+			csvData[date] = priceValue;
 	}
 	data.close();
 }
@@ -87,31 +87,40 @@ void	readData(std::map<std::string, double>	&csvData) {
 std::string	getDate(std::string line) {
 
 	std::string	date;
+	std::istringstream	ss(line);
 
-	if (line.length() > 10 && checkTimeFormat(line))
-		date = line.substr(0, 10);	
-	else
+	std::getline(ss, date, '|');
+
+	boost::algorithm::trim(date);
+	if (date.length() == 10 && checkTimeFormat(date))
 		return (date);
+	
+	date.clear();
 	return (date);
 }
 
 
 double	getValue(std::string line) {
 
-	double		numValue;
-	std::string	value;
+	double				numValue;
+	std::string			value;
+	std::istringstream	ss(line);
 
-	if (line.length() >= 13) {
-	
-		value = line.substr(13, line.length() - 1);
+	std::getline(ss, value, '|');
+	std::getline(ss, value, '|');
+
+	boost::algorithm::trim(value);
+
+	if (validNumber(value))
 		numValue = atof(value.c_str());
-		if (numValue < 0)
-			return (-2);
-		if (numValue > MAX_INT)
-			return (-3);
-		return (numValue);
-	}
-	return (-1);
+	else
+		return (-1);
+
+	if (numValue < 0)
+		return (-2);
+	if (numValue > 1000)
+		return (-3);
+	return (numValue);
 }
 
 int	checkTimeFormat(std::string date) {
@@ -139,8 +148,34 @@ int	checkTimeFormat(std::string date) {
 
 int	isAllDigit(std::string str) {
 	
-	for (int i = 0; i <str.length(); i++)
+	for (int i = 0; i < str.length(); i++)
 		if (!std::isdigit(str.at(i)))
 			return (0);
 	return (1);
+}
+
+int	validNumber(std::string str) {
+
+	int dots = 0;
+	int i = 0;
+
+	if (isAllDigit(str))
+		return (1);
+	if (str[0] == '.' || str[str.length() - 1] == '.')
+		return (0);
+	if (str[0] == '-')
+		i++;
+	for ( ; i < str.length(); i++)
+	{
+		if (!std::isdigit(str[i]))
+		{
+			if (str[i] == '.')
+				dots++;
+			else
+				return (0);
+		}
+	}
+	if (dots < 2)
+		return (1);
+	return (0);
 }
