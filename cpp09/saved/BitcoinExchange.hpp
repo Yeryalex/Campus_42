@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 14:56:03 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/02 11:59:16 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:18:30 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
+#include <iomanip>
 #include <map>
 #include <sstream>
 #include <boost/algorithm/string.hpp>
@@ -35,13 +36,8 @@ class BitcoinExchange {
 	void		checkLine(std::string line);
 	void	setDate(std::string line);
 	void	setValue(std::string line);
-/*	double	getPrice() {
-		return (price);
-	}
-	std::string	getDate() {
-		return (date);
-	}
-*/};
+	void	nearestDate();
+};
 
 int			isAllDigit(std::string str);
 int			validNumber(std::string str);

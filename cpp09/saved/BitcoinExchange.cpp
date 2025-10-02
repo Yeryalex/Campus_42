@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 15:03:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/02 12:01:16 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/02 15:17:46 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,38 @@ void	BitcoinExchange::readFile(char	*filename) {
 	readFile.close();
 }
 
-void	BitcoinExchange::checkLine(std::string line) {
+void	BitcoinExchange::nearestDate() {
 
 	std::map<std::string, double>::iterator it;
+	
+	it = data.find(date);
+	if (it != this->data.end())
+	{
+		std::cout << this->date << " | " << this->price;
+		std::cout << " => " << it->second * this->price;
+		std::cout << std::endl;
+	}
+	else
+	{
+		std::map<std::string, double>::iterator	iter;
+		iter = this->data.lower_bound(this->date);
+		if (iter == this->data.begin())
+		{
+			std::cout << this->date << " | " << this->price;
+			std::cout << " => " << iter->second * this->price;
+			std::cout << std::endl;
+		}
+		else
+		{
+			iter--;
+			std::cout << this->date << " | " << this->price;
+			std::cout << " => " << iter->second * this->price;
+			std::cout << std::endl;
+		}	
+	}
+}
+
+void	BitcoinExchange::checkLine(std::string line) {
 
 	if (this->date.empty() || this->price == - 1) {
 		std::cout << "Error: bad imput => "<< line  << std::endl;
@@ -53,9 +82,7 @@ void	BitcoinExchange::checkLine(std::string line) {
 			std::cout << "Error: too large a number." << std::endl;
 			return ;
 		default:
-			it = data.find(date);	
-			if (it != this->data.end())
-				std::cout << this->date << " | " << this->price << " => " << it->second * this->price << std::endl;
+			this->nearestDate();
 	}
 }
 
@@ -131,9 +158,6 @@ void	BitcoinExchange::setValue(std::string line) {
 
 int	checkTimeFormat(std::string date) {
 
-	int year;
-	int month;
-	int day;
 	std::string sYear = date.substr(0, 4).c_str();
 	std::string sMonth = date.substr(5, 2).c_str();
 	std::string sDay = date.substr(8, 2).c_str();
@@ -141,11 +165,11 @@ int	checkTimeFormat(std::string date) {
 	if (!isAllDigit(sYear + sMonth + sDay))
 		return (0);
 
-	year = atol(date.substr(0, 4).c_str());
-	month = atol(date.substr(5, 2).c_str());
-	day = atol(date.substr(8, 2).c_str());
+	double year = atol(date.substr(0, 4).c_str());
+	double month = atol(date.substr(5, 2).c_str());
+	double day = atol(date.substr(8, 2).c_str());
 	
-	if (year < 0 || month < 0 || day < 0)
+	if (year <= 0 || month <= 0 || day <= 0)
 		return (0);
 	if (month > 12 || day > 31)
 		return (0);
