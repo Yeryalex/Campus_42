@@ -6,44 +6,91 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 15:03:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/02 09:36:29 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/02 17:00:59 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-void	readFile(char	*filename) {
+BitcoinExchange::BitcoinExchange() {
 
+	this->saveData();
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj) {
+
+	*this = obj;
+}
+
+BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &obj) {
+
+	if (this != &obj) {
+	
+		this->data = obj.data;
+		this->date = obj.date;
+		this->price = obj.price;
+	}
+	return (*this);
+}
+
+BitcoinExchange::~BitcoinExchange() { }
+
+void	BitcoinExchange::readFile(char	*filename) {
+
+	BitcoinExchange a;
 	std::ifstream	readFile;
-	std::string	line;
-	std::map<std::string, double>	csvData;
-	std::map<std::string, double>::iterator it;
-
+	std::string		line;
+	
 	readFile.open(filename);
-	readData(csvData);
 	std::getline(readFile, line);
+	
 	while (std::getline(readFile, line))
 	{
-		checkLine(line, csvData);
+		a.setValue(line);
+		a.setDate(line);
+		a.checkLine(line);
 	}
 	readFile.close();
 }
 
-void	checkLine(std::string line, std::map<std::string, double> csvData) {
-	
-	std::string								date;
-	double									value;
+void	BitcoinExchange::nearestDate() {
+
 	std::map<std::string, double>::iterator it;
+	
+	it = data.find(date);
+	if (it != this->data.end())
+	{
+		std::cout << this->date << " | " << this->price;
+		std::cout << " => " << it->second * this->price;
+		std::cout << std::endl;
+	}
+	else
+	{
+		std::map<std::string, double>::iterator	iter;
+		iter = this->data.lower_bound(this->date);
+		if (iter == this->data.begin())
+		{
+			std::cout << this->date << " | " << this->price;
+			std::cout << " => " << iter->second * this->price;
+			std::cout << std::endl;
+		}
+		else
+		{
+			iter--;
+			std::cout << this->date << " | " << this->price;
+			std::cout << " => " << iter->second * this->price;
+			std::cout << std::endl;
+		}	
+	}
+}
 
-	date = getDate(line);
-	value = getValue(line);
+void	BitcoinExchange::checkLine(std::string line) {
 
-	if (date.empty() || value == - 1) {
+	if (this->date.empty() || this->price == - 1) {
 		std::cout << "Error: bad imput => "<< line  << std::endl;
 		return ;
-	}
-	
-	switch (int(value)) {
+	}	
+	switch (int(this->price)) {
 
 		case (-2):
 			std::cout << "Error: not a positive number." << std::endl;
@@ -52,20 +99,18 @@ void	checkLine(std::string line, std::map<std::string, double> csvData) {
 			std::cout << "Error: too large a number." << std::endl;
 			return ;
 		default:
-			it = csvData.find(date);	
-			if (it != csvData.end())
-				std::cout << date << " | " << value << " => " << it->second * value << std::endl;
+			this->nearestDate();
 	}
 }
 
-void	readData(std::map<std::string, double>	&csvData) {
+void	BitcoinExchange::saveData() {
 	
 	std::ifstream	data;
 	std::string		line;
 
 	data.open("data.csv");
-	
 	std::getline(data, line);
+	
 	while (std::getline(data, line))
 	{
 		std::string			date;
@@ -78,29 +123,32 @@ void	readData(std::map<std::string, double>	&csvData) {
 		double				priceValue;
 		std::istringstream	priceStream(price);
 
-		priceStream >> priceValue;	
-			csvData[date] = priceValue;
+		if (priceStream >> priceValue)
+			this->data[date] = priceValue;
+		else
+			std::cout << "Something went wrong with the data.csv\n";
 	}
 	data.close();
 }
 
-std::string	getDate(std::string line) {
+void	BitcoinExchange::setDate(std::string line) {
 
-	std::string	date;
+	std::string			str;
 	std::istringstream	ss(line);
 
-	std::getline(ss, date, '|');
-
-	boost::algorithm::trim(date);
-	if (date.length() == 10 && checkTimeFormat(date))
-		return (date);
+	std::getline(ss, str, '|');
+	boost::algorithm::trim(str);
 	
-	date.clear();
-	return (date);
+	if (str.length() == 10 && checkTimeFormat(str))
+		this->date = str;
+	else
+	{
+		str.clear();
+		this->date = str;
+	}
 }
 
-
-double	getValue(std::string line) {
+void	BitcoinExchange::setValue(std::string line) {
 
 	double				numValue;
 	std::string			value;
@@ -108,38 +156,41 @@ double	getValue(std::string line) {
 
 	std::getline(ss, value, '|');
 	std::getline(ss, value, '|');
-
 	boost::algorithm::trim(value);
 
 	if (validNumber(value))
 		numValue = atof(value.c_str());
 	else
-		return (-1);
-
+	{
+		this->price = -1;
+		return ;
+	}
 	if (numValue < 0)
-		return (-2);
-	if (numValue > 1000)
-		return (-3);
-	return (numValue);
+		this->price = -2;
+	else if (numValue > 1000)
+		this->price = -3;
+	else
+		this->price = numValue;
 }
 
 int	checkTimeFormat(std::string date) {
 
-	int year;
-	int month;
-	int day;
 	std::string sYear = date.substr(0, 4).c_str();
 	std::string sMonth = date.substr(5, 2).c_str();
 	std::string sDay = date.substr(8, 2).c_str();
 	
 	if (!isAllDigit(sYear + sMonth + sDay))
 		return (0);
+	if (date[4] != '-')
+		return (0);
+	if (date[7] != '-')
+		return (0);
 
-	year = atol(date.substr(0, 4).c_str());
-	month = atol(date.substr(5, 2).c_str());
-	day = atol(date.substr(8, 2).c_str());
+	double year = atol(date.substr(0, 4).c_str());
+	double month = atol(date.substr(5, 2).c_str());
+	double day = atol(date.substr(8, 2).c_str());
 	
-	if (year < 0 || month < 0 || day < 0)
+	if (year <= 0 || month <= 0 || day <= 0)
 		return (0);
 	if (month > 12 || day > 31)
 		return (0);
