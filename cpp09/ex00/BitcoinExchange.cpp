@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/27 15:03:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/02 17:00:59 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/03 08:40:10 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,7 +199,7 @@ int	checkTimeFormat(std::string date) {
 
 int	isAllDigit(std::string str) {
 	
-	for (int i = 0; i < str.length(); i++)
+	for (int i = 0; i < (int)str.length(); i++)
 		if (!std::isdigit(str.at(i)))
 			return (0);
 	return (1);
@@ -216,7 +216,7 @@ int	validNumber(std::string str) {
 		return (0);
 	if (str[0] == '-')
 		i++;
-	for ( ; i < str.length(); i++)
+	for ( ; i < (int)str.length(); i++)
 	{
 		if (!std::isdigit(str[i]))
 		{
