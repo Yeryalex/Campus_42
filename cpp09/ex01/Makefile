@@ -5,26 +5,26 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/03 08:34:15 by yrodrigu          #+#    #+#              #
-#    Updated: 2025/10/03 08:48:20 by yrodrigu         ###   ########.fr        #
+#    Created: 2025/10/03 08:43:52 by yrodrigu          #+#    #+#              #
+#    Updated: 2025/10/03 09:07:33 by yrodrigu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CFILES = main.cpp \
-		 BitcoinExchange.cpp \
+		 RPN.cpp \
 
 OFILES = $(CFILES:.cpp=.o)
 
-NAME = btc
+NAME = RPN
 
 all: $(NAME)
 
 $(NAME): $(OFILES)
 	$(CC) $(CFLAGS) $(OFILES) -o $(NAME)
 
-%.o: %.cpp Makefile BitcoinExchange.hpp
+%.o: %.cpp Makefile RPN.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
