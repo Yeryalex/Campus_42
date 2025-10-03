@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 09:07:46 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/03 11:40:44 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/03 12:12:23 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	checkSyntax(char *str) {
 
 	std::istringstream	ss(str);
 	std::string			value;
+	int					num = 0;
 
 	value = ss.str();	
 	for (int i = 0; i < (int)value.length(); i++) {	
@@ -62,9 +63,16 @@ int	checkSyntax(char *str) {
 	{
 		if (value.length() > 1)
 		{
-			std::cerr << "Only accept digits\n";
+			std::cerr << "Only accept digits and operators splitted by spaces\n";
 			return (0);
 		}
+		if (isdigit(value[0]))
+			num++;
+	}
+	if (num < 2) {
+	
+		std::cerr << "You passed one or non digits\n";
+		return (0);
 	}
 	return (1);
 }
@@ -115,6 +123,8 @@ void	RPN::RPNotation(char *str) {
 			temp.stack.pop();
 		}
 	}
+	else if (a.stack.size() == 0)
+		std::cerr << "Error: missing numbers" << std::endl;
 	else
-		std::cout <<	a.stack.top() << std::endl;		
+		std::cout << a.stack.top() << std::endl;		
 }
