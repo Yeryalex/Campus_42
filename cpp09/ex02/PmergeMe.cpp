@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/04 09:22:28 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/04 10:59:40 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &obj) {
 
 PmergeMe::~PmergeMe() { }
 
-void	PmergeMe::sortAlgorithm(int argc, char	**argv) {
+int	PmergeMe::sortAlgorithm(int argc, char	**argv) {
 	
 	PmergeMe	a;
 
@@ -36,16 +36,35 @@ void	PmergeMe::sortAlgorithm(int argc, char	**argv) {
 
 		if (validInteger(argv[i]))
 		{
-			int	number = atoi(argv[i]);
+			long number = atol(argv[i]);
+			if (number > MAX_INT)
+				return (std::cout << "Error: Integer Value overflows.\n", 1);
 			a.vec.push_back(number);
 		}
 		else
-		{
-			std::cerr << "Error\n";
-			return ;
-		}
+			return (std::cerr << "Error\n", 1);
 	}
+	a.insertionSort();
 	a.printVec();
+	return (0);
+}
+
+void	PmergeMe::insertionSort() {
+
+	int N = (int)vec.size();
+
+	for (int  i = 1; i < N; i++) {
+
+		int	key = vec[i];
+		int j = i - 1;
+		
+		while  (j >= 0 && vec[j] > key) {
+		
+			vec[j + 1] = vec[j];
+			j--;
+		}
+		vec[j + 1] = key;
+	}
 }
 
 void	PmergeMe::printVec() const {
