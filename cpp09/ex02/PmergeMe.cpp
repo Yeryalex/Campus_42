@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/04 10:59:40 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/04 14:38:57 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,21 @@ int	PmergeMe::sortAlgorithm(int argc, char	**argv) {
 	a.printVec();
 	return (0);
 }
+/*
+void	PmergeMe::mergeSort() {
 
+	int	mid = (int)vec.size() / 2;
+	
+
+}
+*/
 void	PmergeMe::insertionSort() {
 
 	int N = (int)vec.size();
 
+	clock_t	start, end;
+
+	start = clock();
 	for (int  i = 1; i < N; i++) {
 
 		int	key = vec[i];
@@ -65,6 +75,10 @@ void	PmergeMe::insertionSort() {
 		}
 		vec[j + 1] = key;
 	}
+	for (int i = 0; i < 100000; i++)
+	end = clock();
+
+	std::cout << "\nDURATION OF INSERTION WAS: " << ( float(end - start) / CLOCKS_PER_SEC ) << std::endl;
 }
 
 void	PmergeMe::printVec() const {

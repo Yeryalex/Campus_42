@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:41:43 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/04 09:57:15 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/04 14:25:20 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <vector>
 #include <sstream>
 #include <limits>
+#include <ctime>
 
 #define MAX_INT std::numeric_limits<int>::max()
 
