@@ -6,13 +6,15 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/14 13:08:55 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:54:43 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe() { }
+
+PmergeMe::PmergeMe(std::vector<int> input) : vec(input) { }
 
 PmergeMe::PmergeMe(const PmergeMe &obj) {
 
@@ -30,7 +32,7 @@ PmergeMe::~PmergeMe() { }
 
 int	PmergeMe::fordJohnson(int argc, char **argv) {
 	
-	PmergeMe	a;
+	std::vector<int>	vec;
 
 	for (int i = 1; i < argc; i++) {
 
@@ -39,13 +41,15 @@ int	PmergeMe::fordJohnson(int argc, char **argv) {
 			long number = atol(argv[i]);
 			if (number > MAX_INT)
 				return (std::cout << "Error: Integer Value overflows.\n", 1);
-			a.vec.push_back(number);
+			vec.push_back(number);
 		}
 		else
 			return (std::cerr << "Error\n", 1);
 	}
+	PmergeMe	a(vec);
 	a.printVec();
 	a.sortAlgorithm();
+	a.printVec();
 	return (0);
 }
 
@@ -73,23 +77,27 @@ void	PmergeMe::sortAlgorithm() {
 
 	for (size_t i = 0; i < pairs.size(); i++)
 		largerElements.push_back(pairs[i].first);
+
+	PmergeMe	sortMain(largerElements);
 	
-//	for (size_t  i = 0; i < largerElements.size(); i++)
-//		std::cout << "(" << largerElements[i] << ")\n";
-
-	PmergeMe	sortMain;
-
-	for (size_t i = 0; i < largerElements.size(); i++)
-		sortMain.vec.push_back(largerElements[i]);
-	
-//	for (size_t i = 0; i < sortMain.vec.size(); i++)
-//		std::cout << sortMain.vec[i] << std::endl;
-
 	sortMain.sortAlgorithm();
-	for (size_t i = 0; i < sortMain.vec.size(); i++)
-		std::cout << sortMain.vec[i] << std::endl;
+	largerElements = sortMain.getVector();
 
-//	largerElements = sortMain.getVector();
+	std::vector<int> mainChain = largerElements;
+	std::vector<int> pend;
+
+	for (size_t i = 0; i < pairs.size(); i++)
+		pend.push_back(pairs[i].second);
+
+	std::vector<int>::iterator	pos;
+
+	for (size_t i = 0; i < pend.size(); i++) {
+	
+		int	element = pend[i];
+		pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+		mainChain.insert(pos, element);
+	}
+	vec = mainChain;
 }
 
 std::vector<int>	PmergeMe::getVector() const {

@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:41:43 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/14 13:03:52 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:54:13 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <sstream>
 #include <limits>
 #include <ctime>
+#include <algorithm>
 
 #define MAX_INT std::numeric_limits<int>::max()
 
@@ -28,6 +29,7 @@ class	PmergeMe {
 		std::vector<int>	vec;
 	public:
 		PmergeMe();
+		PmergeMe(std::vector<int> input);
 		PmergeMe(const PmergeMe &obj);
 		PmergeMe	&operator=(const PmergeMe &obj);
 		~PmergeMe();
