@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:41:43 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/04 14:25:20 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:03:52 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ class	PmergeMe {
 		PmergeMe	&operator=(const PmergeMe &obj);
 		~PmergeMe();
 		
-		static int	sortAlgorithm(int argc, char **argv);
+		static int	fordJohnson(int argc, char **argv);
+		void	sortAlgorithm();
 		void	printVec() const;
-		void	insertionSort();
+		std::vector<int>	getVector() const;
 };
 
 int	validInteger(char *str);

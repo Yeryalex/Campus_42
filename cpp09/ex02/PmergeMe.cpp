@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/04 14:38:57 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/14 13:08:55 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &obj) {
 
 PmergeMe::~PmergeMe() { }
 
-int	PmergeMe::sortAlgorithm(int argc, char	**argv) {
+int	PmergeMe::fordJohnson(int argc, char **argv) {
 	
 	PmergeMe	a;
 
@@ -44,41 +44,57 @@ int	PmergeMe::sortAlgorithm(int argc, char	**argv) {
 		else
 			return (std::cerr << "Error\n", 1);
 	}
-	a.insertionSort();
 	a.printVec();
+	a.sortAlgorithm();
 	return (0);
 }
-/*
-void	PmergeMe::mergeSort() {
 
-	int	mid = (int)vec.size() / 2;
+void	PmergeMe::sortAlgorithm() {
+
+	if (vec.size() <= 1)
+		return ;
 	
+	std::vector<std::pair<int, int> > pairs;
 
-}
-*/
-void	PmergeMe::insertionSort() {
-
-	int N = (int)vec.size();
-
-	clock_t	start, end;
-
-	start = clock();
-	for (int  i = 1; i < N; i++) {
-
-		int	key = vec[i];
-		int j = i - 1;
-		
-		while  (j >= 0 && vec[j] > key) {
-		
-			vec[j + 1] = vec[j];
-			j--;
-		}
-		vec[j + 1] = key;
+	for (size_t i = 0; i + 1 < vec.size(); i += 2) {
+	
+		if (vec[i] > vec[i + 1])
+			pairs.push_back(std::make_pair(vec[i], vec[i + 1]));
+		else
+			pairs.push_back(std::make_pair(vec[i + 1], vec[i]));
 	}
-	for (int i = 0; i < 100000; i++)
-	end = clock();
 
-	std::cout << "\nDURATION OF INSERTION WAS: " << ( float(end - start) / CLOCKS_PER_SEC ) << std::endl;
+//	for (size_t  i = 0; i < pairs.size(); i++)
+//		std::cout << "(" << pairs[i].first << ", " << pairs[i].second << ")\n";
+	
+//	int	unpaired = (vec.size() % 2 == 1) ? vec.back() : -1;
+
+	std::vector<int>	largerElements;
+
+	for (size_t i = 0; i < pairs.size(); i++)
+		largerElements.push_back(pairs[i].first);
+	
+//	for (size_t  i = 0; i < largerElements.size(); i++)
+//		std::cout << "(" << largerElements[i] << ")\n";
+
+	PmergeMe	sortMain;
+
+	for (size_t i = 0; i < largerElements.size(); i++)
+		sortMain.vec.push_back(largerElements[i]);
+	
+//	for (size_t i = 0; i < sortMain.vec.size(); i++)
+//		std::cout << sortMain.vec[i] << std::endl;
+
+	sortMain.sortAlgorithm();
+	for (size_t i = 0; i < sortMain.vec.size(); i++)
+		std::cout << sortMain.vec[i] << std::endl;
+
+//	largerElements = sortMain.getVector();
+}
+
+std::vector<int>	PmergeMe::getVector() const {
+
+	return (this->vec);
 }
 
 void	PmergeMe::printVec() const {
