@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:41:43 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/15 11:07:03 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:26:23 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ class	PmergeMe {
 		~PmergeMe();
 		
 		static int	fordJohnson(int argc, char **argv);
+		
+//		template	<typename T>
 		void	sortAlgorithm();
+		
 		void	printVec() const;
 		std::vector<int>	getVector() const;
 };

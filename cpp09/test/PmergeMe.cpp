@@ -6,31 +6,38 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/15 11:21:43 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/15 12:56:32 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+/*
+template	<typename T>
+PmergeMe<T>::PmergeMe() { }
 
-PmergeMe::PmergeMe() { }
+template	<typename T>
+PmergeMe<T>::PmergeMe(T	input) : vec(input) { }
 
-PmergeMe::PmergeMe(std::vector<int> input) : vec(input) { }
-
-PmergeMe::PmergeMe(const PmergeMe &obj) {
+template	<typename T>
+PmergeMe<T>::PmergeMe(const PmergeMe &obj) {
 
 	*this = obj;
 }
 
-PmergeMe	&PmergeMe::operator=(const PmergeMe &obj) {
+template	<typename T>
+PmergeMe<T>	&PmergeMe<T>::operator=(const PmergeMe &obj) {
 
 	if (this != &obj)
 		return (*this);
 	return (*this);
 }
 
-PmergeMe::~PmergeMe() { }
+template	<typename T>
+PmergeMe<T>::~PmergeMe() { }
 
-int	PmergeMe::fordJohnson(int argc, char **argv) {
+
+template	<typename T>
+int	PmergeMe<T>::fordJohnson(int argc, char **argv) {
 	
 	std::vector<int>	vec;
 
@@ -46,14 +53,15 @@ int	PmergeMe::fordJohnson(int argc, char **argv) {
 		else
 			return (std::cerr << "Error\n", 1);
 	}
-	PmergeMe	a(vec);
+	PmergeMe<std::vector<int> > a(vec);
 	a.printVec();
-	a.sortAlgorithm();
-	a.printVec();
+//	a.sortAlgorithm();
+//	a.printVec();
 
 	return (0);
 }
-
+*/
+/*
 void	PmergeMe::sortAlgorithm() {
 
 	if (vec.size() <= 1)
@@ -165,7 +173,7 @@ void	PmergeMe::printVec() const {
 		std::cout << this->vec[i] << " ";
 	std::cout << std::endl;
 }
-
+*/
 int	validInteger(char *str) {
 
 	int	plus = 0;
