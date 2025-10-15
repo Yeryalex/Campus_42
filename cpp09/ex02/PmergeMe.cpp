@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/14 13:54:43 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:13:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	PmergeMe::fordJohnson(int argc, char **argv) {
 	a.printVec();
 	a.sortAlgorithm();
 	a.printVec();
+
 	return (0);
 }
 
@@ -67,11 +68,8 @@ void	PmergeMe::sortAlgorithm() {
 		else
 			pairs.push_back(std::make_pair(vec[i + 1], vec[i]));
 	}
-
-//	for (size_t  i = 0; i < pairs.size(); i++)
-//		std::cout << "(" << pairs[i].first << ", " << pairs[i].second << ")\n";
 	
-//	int	unpaired = (vec.size() % 2 == 1) ? vec.back() : -1;
+	int	unpaired = (vec.size() % 2 == 1) ? vec.back() : - 1;
 
 	std::vector<int>	largerElements;
 
@@ -88,16 +86,72 @@ void	PmergeMe::sortAlgorithm() {
 
 	for (size_t i = 0; i < pairs.size(); i++)
 		pend.push_back(pairs[i].second);
-
-	std::vector<int>::iterator	pos;
-
-	for (size_t i = 0; i < pend.size(); i++) {
 	
-		int	element = pend[i];
-		pos = std::lower_bound(mainChain.begin(), mainChain.end(), element);
+	if (unpaired != -1)
+		pend.push_back(unpaired);
+	
+	std::vector<int>	insertionOrder = generateInsertionOrder(pend.size());
+	
+	for (size_t i = 0; i < insertionOrder.size(); i++) {
+		
+		int pendIndex = insertionOrder[i];
+		int element = pend[pendIndex];
+		int searchEnd = std::min(static_cast<int>(mainChain.size()), pendIndex * 2 + 2);
+		std::vector<int>::iterator pos;
+		
+		pos = std::lower_bound(mainChain.begin(), mainChain.begin() + searchEnd, element);
 		mainChain.insert(pos, element);
 	}
 	vec = mainChain;
+}
+
+std::vector<int>	generateJacobsthal(int pendsize) {
+
+	std::vector<int>	jacob;
+
+	if (pendsize <= 0)
+		return (jacob);
+	jacob.push_back(0);
+	if (pendsize == 1)
+		return (jacob);
+	jacob.push_back(1);
+	if (pendsize == 2)
+		return (jacob);
+
+	int next = 1;
+	while (next < pendsize) {
+	
+		next = jacob[jacob.size() - 1] + 2 * jacob[jacob.size() - 2];
+		if (next < pendsize)
+			jacob.push_back(next);
+		else
+			break ;
+	}
+	return (jacob);
+}
+
+std::vector<int>	generateInsertionOrder(int pendSize) {
+	
+	std::vector<int> order;
+	
+	if (pendSize <= 0) return order;
+	
+	order.push_back(0);
+	if (pendSize == 1) return order;
+
+    std::vector<int> jacob = generateJacobsthal(pendSize + 1);
+
+    for (size_t i = 1; i < jacob.size(); i++) {
+        int start = jacob[i];
+        int end = (i + 1 < jacob.size()) ? jacob[i + 1] : pendSize;
+        
+        for (int j = end - 1; j >= start; j--) {
+            if (j < pendSize && j > 0) {
+				order.push_back(j);
+            }
+        }
+    }
+	return order;
 }
 
 std::vector<int>	PmergeMe::getVector() const {

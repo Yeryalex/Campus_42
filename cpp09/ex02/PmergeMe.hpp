@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:41:43 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/14 13:54:13 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/15 11:07:03 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ class	PmergeMe {
 };
 
 int	validInteger(char *str);
+std::vector<int>	generateJacobsthal(int pendsize);
+std::vector<int>	generateInsertionOrder(int pendSize);
 
 #endif
