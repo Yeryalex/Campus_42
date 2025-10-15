@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 13:42:40 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/15 12:56:32 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/15 13:51:07 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	PmergeMe::sortAlgorithm() {
 	}
 	vec = mainChain;
 }
-
+*/
 std::vector<int>	generateJacobsthal(int pendsize) {
 
 	std::vector<int>	jacob;
@@ -161,7 +161,7 @@ std::vector<int>	generateInsertionOrder(int pendSize) {
     }
 	return order;
 }
-
+/*
 std::vector<int>	PmergeMe::getVector() const {
 
 	return (this->vec);
