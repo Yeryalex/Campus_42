@@ -6,11 +6,15 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:30:11 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 16:37:26 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/23 16:44:12 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-const char *http_response =
+#pragma once
+
+#include "Socket.hpp"
+
+const char *HTTP_RESPONSE =
 	"HTTP/1.1 200 OK\r\n"
     "Content-Type: text/html; charset=UTF-8\r\n"
     "Connection: close\r\n"
@@ -85,3 +89,10 @@ const char *http_response =
     "    </div>\n"
     "</body>\n"
     "</html>\r\n";
+
+
+int	HTTP_LEN = strlen(HTTP_RESPONSE);
+const char *	get_http() {
+
+	return (HTTP_RESPONSE);
+}
