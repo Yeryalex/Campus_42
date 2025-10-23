@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:17:53 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 16:45:41 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/23 17:50:35 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 class	Socket {
 
 	private:
+		int						socket_fd;
 		struct addrinfo			hints;
 		struct addrinfo			*server_info;
 		struct sockaddr_storage	client_addr;
@@ -34,8 +35,9 @@ class	Socket {
 		~Socket();
 		int		set_addrinfo();
 		int		create_socket();
-		int		binding(int socket_fd);
-		int		listening(int socket_fd);
-		int		accepting(int socket_fd);
+		int		binding();
+		int		listening();
+		int		accepting();
 		void	clean_server_info();
+		void	print_error();
 };
