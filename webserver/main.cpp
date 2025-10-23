@@ -6,20 +6,80 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:51:46 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 14:55:28 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/23 16:38:57 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <sys/socket.h>
-#include <netdb.h>
-#include <unistd.h>
-#include <cstring>
-#include <errno.h>
-#include <fcntl.h>
+#include "Socket.hpp"
+#include "Response.hpp"
 
 int main()
 {
+
+	Socket	socket;
+
+	int status = socket.set_addrinfo();
+	if (status != 0) {
+		std::cout << gai_strerror(status) << std::endl;
+		return (1);
+	}
+
+	int socket_fd = socket.create_socket();
+	if (socket_fd == -1) {
+		std::cout << "Creation socket failed\n";
+		std::cout << strerror(errno) << std::endl;
+		socket.clean_server_info();
+		return (1);
+	}
+	std::cout << "Socket created: fd = " << socket_fd <<  std::endl;
+
+	int bind_result = socket.binding(socket_fd);
+	if (bind_result == -1) {
+		std::cout << "Bind for IP and PORT failed\n";
+		std::cout << strerror(errno) << std::endl;
+		close(socket_fd);
+		socket.clean_server_info();
+		return (1);	
+	}
+
+	std::cout << "Socket Bound: bind_result = " << bind_result <<  std::endl;
+
+	int listen_result = socket.listening(socket_fd);	
+	if (listen_result == -1) {
+		std::cout << "Socket listening failed\n";
+		std::cout << strerror(errno) << std::endl;
+		close(socket_fd);
+		socket.clean_server_info();
+		return (1);
+	}
+
+	std::cout << "Server listening... on PORT: 8080 " <<  std::endl;
+	
+	while (true) {
+	
+		int client_fd = socket.accepting(socket_fd);
+		if (client_fd == -1) {
+		
+			std::cout << "Could not accept this request.\n";
+			std::cout << strerror(errno) << std::endl;
+			continue ;
+		}
+		
+		int send_status = send(client_fd, http_response, strlen(http_response), 0);	
+		if (send_status == -1) {
+			std::cout << "Could not send the message to the client\n";
+			std::cout << strerror(errno) << std::endl;
+		}
+		else {
+			
+			std::cout << "Message sent succesfully to the client...\n";
+		}
+		close(client_fd);
+	}
+    
+	socket.clean_server_info();
+    close(socket_fd);
+	/*
 	struct	addrinfo	hints, *server_info;
 
 	std::memset(&hints, 0, sizeof(hints));
@@ -27,17 +87,16 @@ int main()
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_flags = AI_PASSIVE;
 
-	int status = getaddrinfo(NULL, "8080", &hints, &server_info);
+
+
+	int status = getaddrinfo(NULL, "8080", &sock.hints, &server_info);
 	if (status != 0) {
 		std::cout << gai_strerror(status) << std::endl;
 		return (1);
 	}
 
-	int socket_fd = socket(server_info->ai_family,
-		   					server_info->ai_socktype,
-							server_info->ai_protocol);
+	int socket_fd = create_socket(server_info);
 	if (socket_fd == -1) {
-	
 		std::cout << "Creation socket failed\n";
 		std::cout << strerror(errno) << std::endl;
 		freeaddrinfo(server_info);
@@ -139,16 +198,13 @@ int main()
     "</head>\n"
     "<body>\n"
     "    <div class=\"container\">\n"
-    "        <h1>🚀 My C++ Web Server</h1>\n"
-    "        <p>This page is served from a <strong>C++ program</strong> with custom CSS styling!</p>\n"
+    "        <h1>🚀 C++ Web Server</h1>\n"
+    "        <p>This page is served from a <strong>C++ program</strong>!</p>\n"
     "        \n"
     "        <div class=\"feature-list\">\n"
     "            <p><span class=\"icon\">✓</span> Built with raw sockets</p>\n"
     "            <p><span class=\"icon\">✓</span> Handles HTTP protocol</p>\n"
-    "            <p><span class=\"icon\">✓</span> Styled with CSS gradients</p>\n"
-    "            <p><span class=\"icon\">✓</span> Glass morphism effects</p>\n"
-    "            <p><span class=\"icon\">✓</span> Responsive design</p>\n"
-    "        </div>\n"
+	"        </div>\n"
     "        \n"
     "        <div class=\"server-info\">\n"
     "            <p>Server: C++ Socket Program</p>\n"
@@ -182,6 +238,6 @@ int main()
     
     std::cout << "\n=== BASIC HTTP SERVER COMPLETE! ===" << std::endl;
     std::cout << "You've built a working TCP server that accepts connections!" << std::endl;
-
+*/
 	return (0);
 }
