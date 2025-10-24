@@ -6,12 +6,20 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:51:46 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 18:06:47 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:16:11 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Socket.hpp"
 #include "Response.hpp"
+
+volatile bool	g_signal = true;
+
+void	signal_handler(int signum) {
+
+	(void)signum;
+	g_signal = false;
+}
 
 int main()
 {
@@ -30,15 +38,16 @@ int main()
 	}
 
 	std::cout << "Server listening... on PORT: 8080 " <<  std::endl;
-	
-	while (true) {
+
+	std::signal(SIGINT, signal_handler);
+
+	while (g_signal) {
 	
 		int client_fd = socket.accepting();
 		if (client_fd == -1) {
-		
-			std::cout << "Could not accept this request.\n";
-			std::cout << strerror(errno) << std::endl;
-			continue ;
+	
+			if (errno == EAGAIN)
+				continue ;
 		}
 		int send_status = send(client_fd, get_http(), HTTP_LEN, 0);	
 		if (send_status == -1) {

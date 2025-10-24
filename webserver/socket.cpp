@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:20:27 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 17:58:27 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/24 11:10:57 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ int	Socket::create_socket() {
 	this->socket_fd = socket(server_info->ai_family,
 							server_info->ai_socktype,
 							server_info->ai_protocol);
+	if (socket_fd != -1) {
+	
+		fcntl(socket_fd, F_SETFL, O_NONBLOCK);
+	}
 	return (this->socket_fd);
 }
 
@@ -76,7 +80,6 @@ int	Socket::accepting() {
 	int client_fd = accept(socket_fd,
 						(struct sockaddr *)&client_addr,
 						&client_addr_size);
-std::cout << "New connection accepted! Client FD: " << client_fd << std::endl;
 	return (client_fd);
 }
 

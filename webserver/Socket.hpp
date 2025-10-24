@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:17:53 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 17:50:35 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/24 10:51:42 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <cstring>
 #include <errno.h>
 #include <fcntl.h>
+#include <csignal>
 
 class	Socket {
 
