@@ -6,7 +6,7 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 15:20:27 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/24 11:10:57 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/24 12:04:52 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ int	Socket::create_socket() {
 							server_info->ai_socktype,
 							server_info->ai_protocol);
 	if (socket_fd != -1) {
-	
+
+//		int yes = 1;
 		fcntl(socket_fd, F_SETFL, O_NONBLOCK);
+//		setsockopt(soc);
 	}
 	return (this->socket_fd);
 }
