@@ -6,14 +6,13 @@
 /*   By: yrodrigu <yrodrigu@student.42barcelo>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 16:30:11 by yrodrigu          #+#    #+#             */
-/*   Updated: 2025/10/23 16:44:12 by yrodrigu         ###   ########.fr       */
+/*   Updated: 2025/10/24 15:31:47 by yrodrigu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Socket.hpp"
-
+#include <cstring>
 const char *HTTP_RESPONSE =
 	"HTTP/1.1 200 OK\r\n"
     "Content-Type: text/html; charset=UTF-8\r\n"
