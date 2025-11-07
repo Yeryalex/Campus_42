@@ -4,14 +4,6 @@ bigint::bigint() {}
 
 bigint::bigint(std::string number) {
 
-/*	if (number.size() <= 9) {
-		
-		std::string temp;
-
-		temp = std::string(number.rbegin(), number.rend());	
-		digits.push_back(std::atoll(temp.c_str()));
-	}
-*/	
 	std::string copy;
 
 	copy = number;
@@ -19,9 +11,10 @@ bigint::bigint(std::string number) {
 
 		std::string temp;
 
-		temp = temp.append(std::string(copy.rbegin() + copy.size() - 9, copy.rend()));
+		temp = std::string(copy.rbegin() + copy.size() - 9 , copy.rend());
 		
-		
+		std::cout << temp << std::endl;	
+		std::cout << copy << std::endl;
 		digits.push_back(std::atoll(temp.c_str()));
 		copy.erase(copy.size() - 9);
 	}
