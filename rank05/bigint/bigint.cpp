@@ -40,22 +40,18 @@ bigint::~bigint() {}
 
 std::string	bigint::toString() const {
 
-	if (this->digits.empty())
+	if (this->digits.empty() || (this->digits.size() == 1 && this->digits[0] == 0))
 		return ("0");
 
 	std::stringstream ss;
 
 	ss << digits.back();
-	for (size_t i = 0; i < digits.size(); i++) {
+	for (size_t i = 1; i < digits.size(); i++) {
 					
-		ss << digits[digits.size() - 1 - i];
+		ss << std::setw(POWER) << std::setfill('0') <<  digits[digits.size() - 1 - i];
 	}
-	
-	std::string result;
 
-	ss >> result;
-
-	return (result);
+	return (ss.str());
 }
 
 bigint	bigint::operator+(const bigint &obj) const {
@@ -90,6 +86,57 @@ bigint	&bigint::operator+=(const bigint &obj) {
 
 	*this = result;
 	return (*this);
+}
+
+bool	bigint::operator==(const bigint &obj) const {
+
+	return (this->digits == obj.digits);
+}
+
+bool	bigint::operator!=(const bigint &obj) const {
+
+	return (this->digits != obj.digits);
+}
+
+bool	bigint::operator>(const bigint &obj) const {
+	
+	size_t	A = this->digits.size();
+	size_t B = obj.digits.size();
+
+	if (A > B)	
+		return (true);
+	if (A < B)
+		return (false);
+	if (A == B) {
+
+		for (int i = A - 1; i >= 0; i--) {
+		
+			if (this->digits[i] != obj.digits[i])
+				return (this->digits[i] > obj.digits[i]);
+		}
+	}
+	return (false);
+}
+
+bool	bigint::operator>=(const bigint &obj) const {
+
+	size_t A = this->digits.size();
+	size_t B = obj.digits.size();
+
+	if (A > B)
+		return (true);
+	if (A < B)
+		return (false);
+
+	if (A == B) {
+	
+		for (int i = A - 1; i >= 0; i--) {
+		
+			if (this->digits[i] != obj.digits[i])
+				return (this->digits[i] > obj.digits[i]);
+		}
+	}
+	return (true);
 }
 
 std::ostream	&operator<<(std::ostream &os, const bigint &obj) {
