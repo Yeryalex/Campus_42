@@ -5,11 +5,13 @@
 #include <vector>
 #include <cstdlib>
 #include <cstring>
+#include <sstream>
+#include <iomanip>
 
 class bigint {
 
 	private:
-		std::vector<long long> digits;
+		std::vector<long long>	digits;
 		static const int BASE = 1000000000;
 		static const int POWER = 9;
 	public:
@@ -18,9 +20,10 @@ class bigint {
 		bigint(const bigint &obj);
 		bigint &operator=(const bigint &obj);
 		~bigint();
-		void	printdigits() {
 		
-			for(size_t i = 0; i < digits.size(); i++)
-				std::cout << "DIGITS ARE: " << digits[i] << std::endl;
-		}
+		std::string	toString() const;
+		bigint	operator+(const bigint &obj) const;
+		bigint	&operator+=(const bigint &obj);
 };
+
+std::ostream	&operator<<(std::ostream &os, const bigint &obj);
