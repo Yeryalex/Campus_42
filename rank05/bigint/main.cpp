@@ -2,14 +2,15 @@
 
 int main() {
 
-	bigint a("1");
-	bigint b("99999999999999999999999999999");
 	bigint c("1");
-	bigint d("2");
-		
-	std::cout << (b + a) << std::endl;
-	std::cout << (b - a) << std::endl;
-	std::cout << (b - bigint("9999999999")) << std::endl;
+	bigint a(1);
+
+	--c;
+	c--;
+	std::cout << c << std::endl;
+	--a;
+	a--;
+	std::cout << a << std::endl;
 	
 	return (0);
 }

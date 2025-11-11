@@ -1,11 +1,20 @@
 #include "bigint.hpp"
 
-bigint::bigint() {}
+bigint::bigint(): digits(0) {}
+
+bigint::bigint(long long num) {
+
+	std::stringstream ss;
+	ss << num;
+
+	*this =	bigint(ss.str());
+}
 
 bigint::bigint(std::string number) {
 	
-	if (number.empty()) {
-		std::cout << "Error: empty string\n";
+	if (number.empty() || !std::all_of(number.begin(), number.end(), ::isdigit)) {
+		std::cout << "Error: not valid string\n";
+		this->digits.push_back(0);
 		return ;
 	}
 	while (number.size() > POWER) {
@@ -17,7 +26,6 @@ bigint::bigint(std::string number) {
 		digits.push_back(std::atoll(temp.c_str()));
 		number.erase(start_pos, POWER);
 	}
-
 	if (!number.empty())
 		digits.push_back(std::atoll(number.c_str()));
 }
@@ -83,6 +91,14 @@ bigint	bigint::operator+(const bigint &obj) const {
 bigint	&bigint::operator+=(const bigint &obj) {
 
 	bigint result = (*this) + obj;
+
+	*this = result;
+	return (*this);
+}
+
+bigint	&bigint::operator-=(const bigint &obj) {
+
+	bigint result = (*this) - obj;
 
 	*this = result;
 	return (*this);
@@ -165,6 +181,30 @@ bool	bigint::operator<(const bigint &obj) const {
 bool	bigint::operator<=(const bigint &obj) const{
 
 	return !(*this > obj);
+}
+
+bigint	&bigint::operator++() {
+
+	return (*this += bigint(1));
+}
+
+bigint	bigint::operator++(int) {
+
+	bigint temp(*this);
+	++(*this);
+	return (temp);
+}
+
+bigint	&bigint::operator--() {
+
+	return (*this -= bigint(1));
+}
+
+bigint	bigint::operator--(int) {
+
+	bigint temp(*this);
+	++(*this);
+	return (temp);
 }
 
 std::ostream	&operator<<(std::ostream &os, const bigint &obj) {

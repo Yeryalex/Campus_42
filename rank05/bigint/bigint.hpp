@@ -7,6 +7,7 @@
 #include <cstring>
 #include <sstream>
 #include <iomanip>
+#include <algorithm>
 
 class bigint {
 
@@ -16,6 +17,7 @@ class bigint {
 		static const int POWER = 9;
 	public:
 		bigint();
+		bigint(long long num);
 		bigint(std::string);
 		bigint(const bigint &obj);
 		bigint &operator=(const bigint &obj);
@@ -25,6 +27,13 @@ class bigint {
 		bigint	operator+(const bigint &obj) const;
 		bigint	operator-(const bigint &obj) const;
 		bigint	&operator+=(const bigint &obj);
+		bigint	&operator-=(const bigint &obj);
+		
+		bigint &operator++();
+		bigint 	operator++(int);
+		bigint	&operator--();
+		bigint	operator--(int);
+
 		bool	operator==(const bigint &obj) const;
 		bool	operator!=(const bigint &obj) const;
 		bool	operator>(const bigint &obj) const;
