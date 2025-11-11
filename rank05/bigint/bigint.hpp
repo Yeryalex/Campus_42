@@ -23,13 +23,14 @@ class bigint {
 		
 		std::string	toString() const;
 		bigint	operator+(const bigint &obj) const;
+		bigint	operator-(const bigint &obj) const;
 		bigint	&operator+=(const bigint &obj);
 		bool	operator==(const bigint &obj) const;
 		bool	operator!=(const bigint &obj) const;
 		bool	operator>(const bigint &obj) const;
 		bool	operator>=(const bigint &obj) const;
-//		bool	operator<(const bigint &obj) const;
-//		bool	operator<=(const bigint &obj) const;
+		bool	operator<(const bigint &obj) const;
+		bool	operator<=(const bigint &obj) const;
 
 };
 

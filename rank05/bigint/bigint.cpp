@@ -88,6 +88,40 @@ bigint	&bigint::operator+=(const bigint &obj) {
 	return (*this);
 }
 
+bigint	bigint::operator-(const bigint &obj) const {
+
+	if (*this < obj)
+		return (bigint("0"));
+	
+	bigint result;
+	
+	long long borrow = 0;
+
+	size_t max_size = this->digits.size();
+
+	for (size_t i = 0; i < max_size; i++) {
+	
+		long long diff = this->digits[i] - borrow;
+
+		if (i < obj.digits.size())
+			diff -= obj.digits[i];
+		if (diff < 0) {
+		
+			borrow = 1;
+			diff += BASE;
+		}
+		else
+			borrow = 0;
+
+		result.digits.push_back(diff);
+	}
+
+	while (result.digits.size() > 1 && result.digits.back() == 0)
+		result.digits.pop_back();
+
+	return (result);
+}
+
 bool	bigint::operator==(const bigint &obj) const {
 
 	return (this->digits == obj.digits);
@@ -120,23 +154,17 @@ bool	bigint::operator>(const bigint &obj) const {
 
 bool	bigint::operator>=(const bigint &obj) const {
 
-	size_t A = this->digits.size();
-	size_t B = obj.digits.size();
+	return !(*this < obj);
+}
 
-	if (A > B)
-		return (true);
-	if (A < B)
-		return (false);
+bool	bigint::operator<(const bigint &obj) const {
 
-	if (A == B) {
-	
-		for (int i = A - 1; i >= 0; i--) {
-		
-			if (this->digits[i] != obj.digits[i])
-				return (this->digits[i] > obj.digits[i]);
-		}
-	}
-	return (true);
+	return (obj > *this);
+}
+
+bool	bigint::operator<=(const bigint &obj) const{
+
+	return !(*this > obj);
 }
 
 std::ostream	&operator<<(std::ostream &os, const bigint &obj) {
