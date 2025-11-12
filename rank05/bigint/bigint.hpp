@@ -8,6 +8,7 @@
 #include <sstream>
 #include <iomanip>
 #include <algorithm>
+#include <exception>
 
 class bigint {
 
@@ -18,7 +19,7 @@ class bigint {
 	public:
 		bigint();
 		bigint(long long num);
-		bigint(std::string);
+		bigint(const std::string &number);
 		bigint(const bigint &obj);
 		bigint &operator=(const bigint &obj);
 		~bigint();

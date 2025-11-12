@@ -1,6 +1,6 @@
 #include "bigint.hpp"
 
-bigint::bigint(): digits(0) {}
+bigint::bigint() {}
 
 bigint::bigint(long long num) {
 
@@ -10,13 +10,11 @@ bigint::bigint(long long num) {
 	*this =	bigint(ss.str());
 }
 
-bigint::bigint(std::string number) {
+bigint::bigint(const std::string &num) {
 	
-	if (number.empty() || !std::all_of(number.begin(), number.end(), ::isdigit)) {
-		std::cout << "Error: not valid string\n";
-		this->digits.push_back(0);
-		return ;
-	}
+	std::string number = num;
+	if (number.empty() || !std::all_of(number.begin(), number.end(), ::isdigit))
+		throw std::invalid_argument("String empty\n");
 	while (number.size() > POWER) {
 	
 		std::string	temp;
@@ -54,9 +52,9 @@ std::string	bigint::toString() const {
 	std::stringstream ss;
 
 	ss << digits.back();
-	for (size_t i = 1; i < digits.size(); i++) {
+	for (int i = digits.size() - 2; i >= 0; i--) {
 					
-		ss << std::setw(POWER) << std::setfill('0') <<  digits[digits.size() - 1 - i];
+		ss << std::setw(POWER) << std::setfill('0') <<  digits[i];
 	}
 
 	return (ss.str());
