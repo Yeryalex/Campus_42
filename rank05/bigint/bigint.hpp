@@ -29,7 +29,7 @@ class bigint {
 		bigint	&operator+=(const bigint &obj);
 		bigint	&operator-=(const bigint &obj);
 		
-		bigint &operator++();
+		bigint	&operator++();
 		bigint 	operator++(int);
 		bigint	&operator--();
 		bigint	operator--(int);
@@ -40,7 +40,12 @@ class bigint {
 		bool	operator>=(const bigint &obj) const;
 		bool	operator<(const bigint &obj) const;
 		bool	operator<=(const bigint &obj) const;
-
+		
+		bigint	operator<<(int num) const;
+		bigint	operator>>(int num) const;
+		bigint	&operator<<=(int num);
+		bigint	&operator>>=(int num);
+		friend	std::ostream	&operator<<(std::ostream &os, const bigint &obj);
 };
 
-std::ostream	&operator<<(std::ostream &os, const bigint &obj);
+//std::ostream	&operator<<(std::ostream &os, const bigint &obj);

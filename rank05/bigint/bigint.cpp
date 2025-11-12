@@ -203,8 +203,38 @@ bigint	&bigint::operator--() {
 bigint	bigint::operator--(int) {
 
 	bigint temp(*this);
-	++(*this);
+	--(*this);
 	return (temp);
+}
+
+bigint	bigint::operator<<(int num) const {
+
+	return (bigint(this->toString() + std::string(num, '0')));	
+}
+
+bigint	bigint::operator>>(int num) const {
+
+	std::string	str = this->toString();
+	
+	if (str.size() <= (size_t)num)
+		return (bigint("0"));
+	return (bigint(str.erase(str.size() - num, num)));	
+}
+
+bigint	&bigint::operator<<=(int num) {
+
+	bigint	temp(*this << num);
+	*this = temp;
+
+	return (*this);
+}
+
+bigint	&bigint::operator>>=(int num) {
+
+	bigint	temp(*this >> num);
+
+	*this = temp;
+	return (*this);
 }
 
 std::ostream	&operator<<(std::ostream &os, const bigint &obj) {
