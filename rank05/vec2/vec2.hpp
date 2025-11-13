@@ -22,7 +22,6 @@ class vec2 {
 		vec2	operator-(const vec2 &obj) const;
 		vec2	operator*(const vec2 &obj) const;
 		vec2	operator*(float num) const;
-		vec2	&operator*(float num);
 
 		vec2	operator-();
 		friend	vec2	operator*(float num, const vec2 &obj);
@@ -38,6 +37,7 @@ class vec2 {
 		vec2	&operator+=(const vec2 &obj);
 		vec2	&operator-=(const vec2 &obj);
 		vec2	&operator*=(const vec2 &obj);
+		vec2	&operator*=(float num);
 
 		bool	operator==(const vec2 &obj) const;
 		bool	operator!=(const vec2 &obj) const;

@@ -21,6 +21,8 @@ vec2	&vec2::operator=(const vec2 &obj) {
 
 vec2::~vec2() {}
 
+//better reuse [] operators instead of  getx and getY
+
 float	vec2::getX() const {
 
 	return (this->x);
@@ -51,12 +53,6 @@ vec2	vec2::operator*(float num) const {
 	return (vec2(this->x * num, this->y * num));
 }
 
-vec2	&vec2::operator*(float num) {
-	x *= num;
-	y *= num;
-	return (*this);
-}
-
 vec2	&vec2::operator+=(const vec2 &obj) {
 
 	*this = *this + obj;
@@ -72,6 +68,12 @@ vec2	&vec2::operator-=(const vec2 &obj) {
 vec2	&vec2::operator*=(const vec2 &obj) {
 
 	*this = *this * obj;
+	return (*this);
+}
+
+vec2	&vec2::operator*=(float num) {
+
+	*this = *this * num;
 	return (*this);
 }
 
